@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="../../pages/contact/contact.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | StrideGear</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../style.css">
 </head>
-<body>
-    <header>
-        <p style="color: chocolate;">Mercedes</p>
-        <a href="\index.html">home</a>
-        <a href="/src\pages\contact\contact.html"> contact</a>
-        <a href="/src/pages/about/about.html"> About</a>
-        <a href="/src/pages/signup/signup.html">Login</a>
-    </header>
-    
-    <br>    
+<body class="bg-gray-50">
 
-    <div id="form">
-        <form
-            action="https://formspree.io/f/xvgwyojo" method="POST">
-            <label>Name: <input type=text placeholder= "Enter your name" required> </label>
-            <label>E-mail:<input type="email" placeholder="Enter email Address" required></label>
-            <br>
-            <br>
-            <label>Subject <input type="text" placeholder="Enter Text" required></label>
-            <label>Your message:<textarea placeholder="Enter your message"></textarea></label>
-            
-            <br><br>
-            <label>Today's Date: <input type="date" required</label>
-            <!-- your other form fields go here -->
-            <button type="submit">Send</button>
-        </form>
+  <header class="bg-blue-600">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="../../../index.html" class="flex items-center space-x-2 text-white font-semibold">
+        <span class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">SG</span>
+        <span>StrideGear</span>
+      </a>
+      <nav class="hidden md:flex items-center space-x-4">
+        <a href="../../../index.html" class="text-white">Home</a>
+        <a href="../about/about.html" class="text-white">About</a>
+        <a href="contact.html" class="text-white">Contact</a>
+        <a href="../signup/signup.html" class="text-white">Sign Up</a>
+        <a href="../signin/signin.html" class="text-white">Sign In</a>
+      </nav>
     </div>
+  </header>
+
+  <main class="container mx-auto mt-8">
+    <section class="max-w-lg mx-auto bg-white p-6 rounded shadow">
+      <h2 class="text-2xl font-bold mb-4 text-center">Get in touch</h2>
+
+      <div id="formAlert" class="hidden mb-4"></div>
+      <form id="contactForm" action="https://formspree.io/f/xvgwyojo" method="POST" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Full name</label>
+          <div class="relative">
+            <input name="name" id="name" type="text" required class="block w-full rounded border px-3 py-2" placeholder="Abdul Saboor Ahmad">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Email</label>
+          <input name="email" id="email" type="email" required class="block w-full rounded border px-3 py-2" placeholder="you@gmail.com">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Order number (optional)</label>
+          <input name="order" id="order" type="text" class="block w-full rounded border px-3 py-2" placeholder="e.g. #12345">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Message</label>
+          <textarea name="message" id="message" rows="4" required class="block w-full rounded border px-3 py-2" placeholder="How can we help?"></textarea>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button type="submit" class="btn">Send Message</button>
+          <div class="text-sm text-slate-600">Or email: gawkgawk@stridegear.example</div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-blue-600 text-white mt-8">
+    <div class="container mx-auto p-6 text-center">© StrideGear 2025.</div>
+  </footer>
 </body>
 </html>

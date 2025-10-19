@@ -1,12 +1,110 @@
-
-#navbar{
-    background-color: rgb(58, 46, 151);
-
-    padding: 10px;
-    text-align: right;
-    background-blend-mode: darken;
+/* Custom minimal styling */
+body {
+  font-family: 'Inter', sans-serif;
 }
-a{
-    text-decoration: none;
-    color: white;
+
+a:hover {
+  text-decoration: underline;
 }
+
+/* Simple green color scheme — primary, secondary, accent */
+:root{
+  --primary: #14EB51;   /* main green */
+  --secondary: #14AEEB; /* kept for subtle contrast where needed */
+  --muted-bg: #f5fbf7;  /* page background */
+  --text: #05231a;
+  --card-shadow: rgba(5,35,26,0.06);
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--muted-bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Ensure theme overrides Tailwind body bg utility */
+.bg-gray-50, body.bg-gray-50 { background-color: var(--muted-bg) !important; }
+
+/* Simple link styles */
+a{ color: var(--primary); text-decoration: none; transition: color .12s ease; }
+a:hover{ color: var(--secondary); text-decoration: underline; }
+
+/* Map common Tailwind blue classes to the green theme (keeps HTML unchanged) */
+.bg-blue-600{ background-color: var(--primary) !important; color: #fff !important; }
+.bg-blue-100{ background-color: rgba(20,235,81,0.06) !important; }
+.text-blue-700{ color: var(--secondary) !important; }
+.text-blue-600{ color: var(--primary) !important; }
+.hover\:bg-blue-700:hover{ background-color: var(--secondary) !important; }
+
+/* Navbar adjustments (minimal) */
+nav{ display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem; }
+nav h1{ margin:0; color:#fff; font-weight:700; }
+nav .space-x-4 a{ color:#fff; margin-left:.75rem; opacity:.95; }
+nav .space-x-4 a:hover{ opacity:1; box-shadow: inset 0 -2px 0 rgba(255,255,255,0.12); }
+
+/* Hero */
+section.bg-blue-100{ padding:3.5rem 1rem; text-align:center; background: rgba(20,235,81,0.06); }
+section.bg-blue-100 h2{ margin:0 0 .5rem; color:var(--text); font-size:2.25rem; }
+section.bg-blue-100 p{ margin:0 0 1rem; color:rgba(5,35,26,0.7); }
+
+/* Buttons and interactive elements */
+button, .btn, input[type="submit"]{
+  background: var(--primary);
+  color: #042016;
+  border: none;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight:600;
+  transition: transform .12s ease, background-color .12s ease, box-shadow .12s ease;
+}
+button:hover, .btn:hover{
+  background: var(--secondary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(4,35,22,0.06);
+}
+
+/* Cards / tiles */
+section .bg-white{
+  border-radius:8px;
+  box-shadow: 0 10px 24px var(--card-shadow);
+  padding:1.25rem;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+section .bg-white:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(5,35,26,0.08); }
+
+/* Forms */
+input[type="text"], input[type="email"], input[type="password"], textarea{
+  border:1px solid rgba(5,35,26,0.08);
+  padding:.6rem;
+  border-radius:8px;
+  width:100%;
+  background:#fff;
+  color:var(--text);
+  transition: border-color .12s ease, box-shadow .12s ease;
+}
+input:focus, textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow: 0 0 0 6px rgba(20,235,81,0.06);
+}
+
+/* Footer */
+footer{
+  padding:1rem;
+  color:#fff;
+  text-align:center;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+/* Utilities */
+.container{ max-width:1200px; margin:0 auto; padding:0 1rem; }
+h1,h2,h3,h4{ margin:0; color:var(--text); font-weight:700; }
+p{ margin:0 0 .75rem 0; color:rgba(5,35,26,0.78); }
