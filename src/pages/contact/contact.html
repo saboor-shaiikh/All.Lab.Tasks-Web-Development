@@ -1,113 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | StrideGear</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StrideGear — Contact</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../../style.css">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+  <link rel="stylesheet" href="../../../style.css" />
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-gray-50 text-slate-800 antialiased">
 
-  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 shadow-md">
+  <!-- Navbar (consistent) -->
+  <header class="bg-gradient-to-r from-indigo-600 via-rose-500 to-amber-400 shadow">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="../../../index.html" class="flex items-center space-x-3 text-white font-semibold">
-        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shadow font-bold">SG</span>
-        <span class="tracking-wide">StrideGear</span>
+      <a href="../../../index.html" class="flex items-center gap-3 text-white font-semibold">
+        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold shadow">SG</span>
+        <span>StrideGear</span>
       </a>
-      <nav class="hidden md:flex items-center space-x-4">
-        <a href="../../../index.html" class="text-white hover:opacity-90 transition">Home</a>
-        <a href="../about/about.html" class="text-white hover:opacity-90 transition">About</a>
-        <a href="contact.html" class="text-white underline">Contact</a>
-        <a href="../signup/signup.html" class="text-white hover:opacity-90 transition">Sign Up</a>
-        <a href="../signin/signin.html" class="text-white hover:opacity-90 transition">Sign In</a>
+      <nav class="hidden md:flex items-center gap-4">
+        <a href="../../../index.html" class="text-white hover:opacity-90">Home</a>
+        <a href="../about/about.html" class="text-white hover:opacity-90">About</a>
+        <a href="contact.html" class="text-white hover:opacity-90">Contact</a>
+        <a href="../signin/signin.html" class="text-white hover:opacity-90">Sign in</a>
+        <a href="../signup/signup.html" class="bg-white/10 px-3 py-2 rounded text-white hover:bg-white/20 transition">Shop</a>
       </nav>
-
-      <button id="navToggle" class="md:hidden text-white p-2 rounded hover:bg-white/10 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
-      </button>
-    </div>
-
-    <div id="mobileMenu" class="md:hidden hidden bg-gradient-to-b from-blue-600 to-indigo-600">
-      <div class="px-4 pb-4 space-y-2">
-        <a href="../../../index.html" class="block text-white py-2 border-b border-white/10">Home</a>
-        <a href="../about/about.html" class="block text-white py-2 border-b border-white/10">About</a>
-        <a href="contact.html" class="block text-white py-2 border-b border-white/10">Contact</a>
-        <a href="../signup/signup.html" class="block text-white py-2 border-b border-white/10">Sign Up</a>
-        <a href="../signin/signin.html" class="block text-white py-2">Sign In</a>
-      </div>
     </div>
   </header>
 
-  <main class="container mx-auto mt-8 px-4">
-    <section class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg reveal opacity-0 translate-y-6 transition-all duration-700">
-      <h2 class="text-2xl font-bold mb-4 text-center text-slate-900">Get in touch</h2>
+  <!-- Contact hero -->
+  <section class="container mx-auto px-4 py-16 text-center">
+    <h1 class="text-4xl font-extrabold mb-3">Get Help & Support</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto">Questions about orders, returns, or product details? Reach out and we'll reply within 24 hours.</p>
+  </section>
 
-      <div id="formAlert" class="hidden mb-4 p-3 rounded"></div>
-      <form id="contactForm" action="https://formspree.io/f/xvgwyojo" method="POST" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium mb-1">Full name</label>
-          <div class="relative">
-            <input name="name" id="name" type="text" required class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="Abdul Saboor Ahmad">
-          </div>
-        </div>
+  <!-- Contact form (component: form elements) -->
+  <section class="container mx-auto px-4 max-w-2xl">
+    <div class="bg-white rounded-2xl shadow p-8">
+      <form 
+  action="https://formspree.io/f/xvgwyojo" 
+  method="POST" 
+  class="space-y-4"
+>
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+    <input type="text" name="name" class="w-full border rounded px-3 py-2" placeholder="Your name" required>
+  </div>
 
-        <div>
-          <label class="block text-sm font-medium mb-1">Email</label>
-          <input name="email" id="email" type="email" required class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="you@gmail.com">
-        </div>
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+    <input type="email" name="_replyto" class="w-full border rounded px-3 py-2" placeholder="you@example.com" required>
+  </div>
 
-        <div>
-          <label class="block text-sm font-medium mb-1">Order number (optional)</label>
-          <input name="order" id="order" type="text" class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="e.g. #12345">
-        </div>
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Order # (optional)</label>
+    <input type="text" name="order" class="w-full border rounded px-3 py-2" placeholder="#12345">
+  </div>
 
-        <div>
-          <label class="block text-sm font-medium mb-1">Message</label>
-          <textarea name="message" id="message" rows="4" required class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="How can we help?"></textarea>
-        </div>
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+    <textarea name="message" class="w-full border rounded px-3 py-2" rows="5" placeholder="Tell us how we can help..." required></textarea>
+  </div>
 
-        <div class="flex items-center justify-between">
-          <button type="submit" id="sendBtn" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:scale-105 transition transform">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5"/></svg>
-            Send Message
-          </button>
-          <div class="text-sm text-slate-600">Or email: <a href="mailto:saboorsheikh201@gmail.com" class="text-blue-600 underline">saboorsheikh201@gmail.com</a></div>
-        </div>
-      </form>
-    </section>
-  </main>
+  <div class="flex gap-3">
+    <button 
+      type="submit" 
+      class="px-6 py-2 bg-gradient-to-r from-indigo-600 to-rose-500 text-white rounded-lg hover:from-rose-500 hover:to-amber-400 transition-all duration-300 hover:shadow-lg hover:shadow-rose-200/40"
+    >
+      Submit
+    </button>
+    <button type="reset" class="px-4 py-2 rounded border hover:bg-gray-100 transition">Reset</button>
+  </div>
+</form>
 
-  <footer class="bg-gradient-to-r from-blue-700 to-indigo-700 text-white mt-8">
-    <div class="container mx-auto p-6 text-center">© StrideGear 2025.</div>
+    </div>
+  </section>
+
+  <!-- Info + tooltip (component: tooltip) -->
+  <section class="container mx-auto px-4 mt-8">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card">
+        <h4 class="font-semibold">Email</h4>
+        <p class="text-gray-600">help@stridegear.com</p>
+      </div>
+      <div class="card">
+        <h4 class="font-semibold">Phone</h4>
+        <p class="text-gray-600">+92 300 1234567</p>
+      </div>
+      <div class="card">
+        <h4 class="font-semibold">Address</h4>
+        <p class="text-gray-600">StrideGear HQ, Karachi, Pakistan</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ accordion (component: accordion) -->
+  <section class="container mx-auto px-4 mt-8">
+    <h3 class="text-xl font-semibold mb-4">Help Topics</h3>
+    <div id="helpAccordion" data-accordion="collapse">
+      <h2>
+        <button type="button" data-accordion-target="#h1" aria-expanded="false" aria-controls="h1" class="flex items-center justify-between w-full p-4 bg-white rounded-lg border">
+          <span>How to return an item</span>
+          <svg data-accordion-icon class="w-6 h-6"></svg>
+        </button>
+      </h2>
+      <div id="h1" class="hidden p-4 mt-2 border rounded-lg">
+        <p class="text-gray-600">Returns are free within 30 days. Pack the item and use the returns label in your account.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA & newsletter -->
+  <section class="container mx-auto px-4 mt-8">
+    <div class="bg-gradient-to-r from-indigo-100 to-rose-100 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
+      <div>
+        <h4 class="font-semibold">Need faster help?</h4>
+        <p class="text-gray-600">Contact support via live chat on business hours.</p>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <a href="#" class="btn-primary">Live Chat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-indigo-700 via-rose-600 to-amber-500 py-8 text-white mt-12">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 StrideGear. Step Boldly.</p>
+    </div>
   </footer>
 
-  <script>
-    // mobile menu toggle
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
-
-    // reveal animations
-    document.addEventListener('DOMContentLoaded', () => {
-      requestAnimationFrame(() => {
-        document.querySelectorAll('.reveal').forEach((el, i) => {
-          setTimeout(() => el.classList.remove('opacity-0', 'translate-y-6'), 100 * i);
-        });
-      });
-    });
-
-    // simple UI feedback for form submit
-    const form = document.getElementById('contactForm');
-    const alertBox = document.getElementById('formAlert');
-    const sendBtn = document.getElementById('sendBtn');
-    form?.addEventListener('submit', (e) => {
-      sendBtn.setAttribute('disabled', 'disabled');
-      sendBtn.classList.add('opacity-70', 'cursor-not-allowed');
-      alertBox.className = 'mb-4 p-3 rounded bg-blue-50 text-blue-700';
-      alertBox.textContent = 'Sending...';
-    });
-  </script>
 </body>
 </html>

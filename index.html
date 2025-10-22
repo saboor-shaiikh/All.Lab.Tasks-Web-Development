@@ -1,175 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | StrideGear</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-slate-50 text-slate-800">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StrideGear — Shop Premium Sneakers</title>
 
-  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 shadow-md">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite (components + JS) -->
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50 text-slate-800 antialiased">
+
+  <!-- NAVBAR (component 1) -->
+  <header class="bg-gradient-to-r from-indigo-600 via-rose-500 to-amber-400 shadow">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="index.html" class="flex items-center space-x-3">
-        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold shadow">SG</span>
-        <span class="text-white font-semibold text-lg tracking-wide">StrideGear</span>
+      <a href="index.html" class="flex items-center gap-3 text-white font-semibold">
+        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold shadow">SG</span>
+        <span class="tracking-wide">StrideGear</span>
       </a>
 
-      <nav class="hidden md:flex items-center space-x-4">
-        <a href="index.html" class="text-white hover:underline hover:opacity-90 transition">Home</a>
-        <a href="src/pages/about/about.html" class="text-white hover:underline hover:opacity-90 transition">About</a>
-        <a href="src/pages/contact/contact.html" class="text-white hover:underline hover:opacity-90 transition">Contact</a>
-        <a href="src/pages/signup/signup.html" class="text-white hover:underline hover:opacity-90 transition">Sign Up</a>
-        <a href="src/pages/signin/signin.html" class="text-white hover:underline hover:opacity-90 transition">Sign In</a>
+      <!-- desktop nav (component 2: dropdown) -->
+      <nav class="hidden md:flex items-center gap-4">
+        <a href="index.html" class="text-white hover:opacity-90">Home</a>
+        <a href="src/pages/about/about.html" class="text-white hover:opacity-90">About</a>
+        <a href="src/pages/contact/contact.html" class="text-white hover:opacity-90">Contact</a>
+
+        <!-- Flowbite dropdown component (component 3) -->
+        <div class="relative">
+          <button id="moreBtn" data-dropdown-toggle="moreMenu" class="text-white px-3 py-2 rounded hover:bg-white/10 transition">Collections ▾</button>
+          <div id="moreMenu" class="hidden z-10 w-48 bg-white rounded shadow py-2">
+            <a href="#new" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">New Arrivals</a>
+            <a href="#best" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">Best Sellers</a>
+            <a href="#limited" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">Limited Edition</a>
+          </div>
+        </div>
+
+        <a href="src/pages/signin/signin.html" class="text-white hover:opacity-90">Sign in</a>
+        <a href="src/pages/signup/signup.html" class="bg-white/10 px-3 py-2 rounded text-white hover:bg-white/20 transition">Shop</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <a class="hidden md:inline-block btn bg-white text-blue-600 font-medium px-4 py-2 rounded shadow hover:scale-105 transition" href="src/pages/signup/signup.html">Get Started</a>
-        <button id="navToggle" class="md:hidden text-white p-2 rounded hover:bg-white/10 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+      <!-- mobile menu toggle -->
+      <div class="md:hidden">
+        <button data-collapse-toggle="mobile-menu" type="button" class="text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
 
-    <div id="mobileMenu" class="md:hidden hidden bg-gradient-to-b from-blue-600 to-indigo-600">
-      <div class="px-4 pb-4 space-y-2">
-        <a href="index.html" class="block text-white py-2 border-b border-white/10">Home</a>
-        <a href="src/pages/about/about.html" class="block text-white py-2 border-b border-white/10">About</a>
-        <a href="src/pages/contact/contact.html" class="block text-white py-2 border-b border-white/10">Contact</a>
-        <a href="src/pages/signup/signup.html" class="block text-white py-2 border-b border-white/10">Sign Up</a>
-        <a href="src/pages/signin/signin.html" class="block text-white py-2">Sign In</a>
-      </div>
+    <!-- mobile menu (component 4) -->
+    <div id="mobile-menu" class="hidden px-4 pb-4 md:hidden">
+      <a href="index.html" class="block py-2 text-white">Home</a>
+      <a href="src/pages/about/about.html" class="block py-2 text-white">About</a>
+      <a href="src/pages/contact/contact.html" class="block py-2 text-white">Contact</a>
+      <a href="src/pages/signin/signin.html" class="block py-2 text-white">Sign in</a>
+      <a href="src/pages/signup/signup.html" class="block py-2 text-white">Shop</a>
     </div>
   </header>
 
-  <main class="container mx-auto px-4">
-    <section class="bg-gradient-to-r from-white to-blue-50 rounded-lg mt-8 p-10 text-center shadow-md reveal opacity-0 translate-y-6 transition-all duration-700">
-      <h1 class="text-4xl font-extrabold mb-3 text-slate-900">Step into comfort. Step into style.</h1>
-      <p class="text-lg mb-6 text-slate-700">StrideGear designs performance-driven shoes for everyday life — from city streets to weekend trails.</p>
-      <div class="flex justify-center gap-4">
-        <a href="" class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:scale-105 transform transition">Shop Men's</a>
-        <a href="" class="inline-block bg-white text-blue-600 px-5 py-2 rounded-lg shadow hover:scale-105 transform transition">Shop Women's</a>
-      </div>
-    </section>
+  <!-- HERO (component 5: hero + CTA) -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-6">
+        <p class="kicker uppercase tracking-wide text-rose-600">New Drop</p>
+        <h1 class="text-5xl font-extrabold leading-tight">Stride X: Engineered for Speed & Comfort</h1>
+        <p class="text-gray-600 max-w-xl">Lightweight knit upper, responsive midsole, and sustainable materials — built for every stride.</p>
 
-    <section class="grid gap-6 md:grid-cols-3 mt-8">
-      <div class="bg-white p-6 rounded shadow hover:shadow-lg transition reveal opacity-0 translate-y-6">
-        <h3 class="font-semibold mb-2">Lightweight Design</h3>
-        <p class="text-sm text-slate-700">Engineered midsoles that reduce weight without sacrificing support.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow hover:shadow-lg transition reveal opacity-0 translate-y-6">
-        <h3 class="font-semibold mb-2">All-day Cushioning</h3>
-        <p class="text-sm text-slate-700">Responsive foam for comfort on long walks and standing shifts.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow hover:shadow-lg transition reveal opacity-0 translate-y-6">
-        <h3 class="font-semibold mb-2">Durable Outsole</h3>
-        <p class="text-sm text-slate-700">High-traction rubber designed to last season after season.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow hover:shadow-lg transition reveal opacity-0 translate-y-6">
-        <h3 class="font-semibold mb-2">Sustainable Materials</h3>
-        <p class="text-sm text-slate-700">Recycled fabrics and low-impact processes in our core lines.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow hover:shadow-lg transition reveal opacity-0 translate-y-6">
-        <h3 class="font-semibold mb-2">Water-Resistant</h3>
-        <p class="text-sm text-slate-700">Protective finishes for unexpected weather.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow hover:shadow-lg transition reveal opacity-0 translate-y-6">
-        <h3 class="font-semibold mb-2">Easy Returns</h3>
-        <p class="text-sm text-slate-700">30-day free returns and free exchanges for size adjustments.</p>
-      </div>
-    </section>
+        <div class="flex gap-4 items-center">
+          <a href="#new" class="btn-primary inline-flex items-center gap-2">Explore New</a>
 
-    <section class="mt-8 bg-white p-6 rounded shadow flex flex-col md:flex-row items-center justify-between gap-4 reveal opacity-0 translate-y-6">
-      <div class="text-center">
-        <div class="text-3xl font-bold">500+</div>
-        <div class="text-sm text-slate-600">Styles</div>
-      </div>
-      <div class="text-center">
-        <div class="text-3xl font-bold">50k+</div>
-        <div class="text-sm text-slate-600">Customers</div>
-      </div>
-      <div class="text-center">
-        <div class="text-3xl font-bold">4.9 ★</div>
-        <div class="text-sm text-slate-600">Average Rating</div>
-      </div>
-    </section>
+          <!-- modal trigger (component 6: modal) -->
+          <button data-modal-target="videoModal" data-modal-toggle="videoModal" class="px-4 py-2 rounded border">Watch</button>
+        </div>
 
-    <section class="mt-8">
-      <div class="bg-white p-6 rounded shadow reveal opacity-0 translate-y-6">
-        <div class="flex items-center gap-4">
-          <div class="h-12 w-12 rounded-full bg-green-200 flex items-center justify-center font-semibold">EM</div>
-          <div>
-            <div class="font-medium">Emma R.</div>
-            <div class="text-sm text-slate-500">Runner &amp; Designer</div>
+        <!-- small stats (component 7: stat cards) -->
+        <div class="flex gap-4 mt-6">
+          <div class="bg-white p-4 rounded-lg shadow text-center">
+            <div class="text-2xl font-bold">4.9</div>
+            <div class="text-sm text-gray-500">avg. rating</div>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow text-center">
+            <div class="text-2xl font-bold">24k+</div>
+            <div class="text-sm text-gray-500">pairs sold</div>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow text-center">
+            <div class="text-2xl font-bold">Free</div>
+            <div class="text-sm text-gray-500">returns</div>
           </div>
         </div>
-        <p class="mt-4 text-slate-700">“StrideGear gives me the support and durability I need for training — and they look good off the track too.”</p>
       </div>
-    </section>
 
-    <section class="mt-8 grid md:grid-cols-3 gap-4">
-      <div class="bg-white p-6 rounded shadow reveal opacity-0 translate-y-6">
-        <div class="text-lg font-semibold mb-2">Everyday</div>
-        <div class="text-2xl font-bold mb-4">$69 <span class="text-sm">/pair</span></div>
-        <ul class="text-sm space-y-2 mb-4">
-          <li>Comfort-focused</li>
-          <li>Casual and office friendly</li>
-        </ul>
-        <a class="btn w-full text-center bg-blue-600 text-white py-2 rounded-lg hover:scale-105 transition" href="src/pages/signup/signup.html">Shop</a>
-      </div>
-      <div class="bg-white p-6 rounded shadow border-2 border-blue-100 reveal opacity-0 translate-y-6">
-        <div class="text-lg font-semibold mb-2">Performance</div>
-        <div class="text-2xl font-bold mb-4">$119 <span class="text-sm">/pair</span></div>
-        <ul class="text-sm space-y-2 mb-4">
-          <li>Advanced cushioning</li>
-          <li>Trail-ready outsole</li>
-        </ul>
-        <a class="btn w-full text-center bg-white text-blue-600 py-2 rounded-lg hover:scale-105 transition" href="src/pages/signup/signup.html">Shop</a>
-      </div>
-      <div class="bg-white p-6 rounded shadow reveal opacity-0 translate-y-6">
-        <div class="text-lg font-semibold mb-2">Limited Edition</div>
-        <div class="text-2xl font-bold mb-4">$179</div>
-        <ul class="text-sm space-y-2 mb-4">
-          <li>Exclusive materials</li>
-          <li>Small production runs</li>
-        </ul>
-        <a class="btn w-full text-center bg-white text-blue-600 py-2 rounded-lg hover:scale-105 transition" href="src/pages/contact/contact.html">Inquire</a>
-      </div>
-    </section>
+      <!-- product preview (component 8: product card + badge + tooltip) -->
+      <div class="flex justify-center">
+        <div class="card max-w-md transform transition hover:scale-105">
+          <div class="relative">
+            <img src="https://th.bing.com/th/id/R.3f83012aa0da10dd76a3b2c6d9d6f6d2?rik=dbaPmmPcsYuCcA&riu=http%3a%2f%2fwww.fashion-press.net%2fimg%2fnews%2f13929%2fadidas_13.jpg&ehk=u3K3k%2b%2b%2fIgQwo21k9LausR3gIt4JAW4%2bmDLhnuucM%2fI%3d&risl=&pid=ImgRaw&r=0" alt="Stride X shoe" class="w-full rounded-lg h-72 object-cover" />
+            <span class="absolute top-3 left-3 bg-rose-600 text-white text-xs px-2 py-1 rounded">Bestseller</span>
+            <!-- tooltip (component 9) -->
+            <button type="button" data-tooltip-target="sizesTip" class="absolute top-3 right-3 bg-white/90 rounded-full p-2 shadow">
+              <svg class="w-5 h-5 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+            </button>
+            <div id="sizesTip" role="tooltip" class="hidden absolute z-10 px-3 py-2 text-sm font-medium text-white bg-slate-700 rounded-lg">
+              Available in sizes 6–12
+            </div>
+          </div>
 
-    <section class="mt-8 bg-white p-6 rounded shadow text-center reveal opacity-0 translate-y-6">
-      <div class="text-lg font-semibold">Ready to find your new favorite pair?</div>
-      <a href="src/pages/signup/signup.html" class="btn mt-4 inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-lg shadow hover:scale-105 transition">Create an Account</a>
-    </section>
-  </main>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Stride X — Carbon Edition</h3>
+            <p class="text-gray-600 mt-2">Responsive foam sole • Knit upper • Eco midsole</p>
+            <div class="mt-4 flex gap-3">
+              <a href="#buy" class="btn-primary flex-1 text-center">Buy Now</a>
+              <!-- add to wishlist dropdown (component 10: tooltip + button) -->
+              <button class="px-3 py-2 rounded border" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="bg-gradient-to-r from-blue-700 to-indigo-700 text-white mt-12">
-    <div class="container mx-auto p-6 text-center">© StrideGear 2025.</div>
+<section class="bg-gray-50 py-16">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-semibold mb-10">Why Choose StrideGear</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform">
+        <div class="text-blue-600 text-5xl mb-4">👟</div>
+        <h3 class="text-xl font-bold mb-2">Lightweight Design</h3>
+        <p class="text-gray-500">Engineered for performance and comfort, every stride feels effortless.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform">
+        <div class="text-green-600 text-5xl mb-4">⚡</div>
+        <h3 class="text-xl font-bold mb-2">Energy Boost</h3>
+        <p class="text-gray-500">Responsive sole technology that gives you a spring in every step.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform">
+        <div class="text-orange-500 text-5xl mb-4">🛡️</div>
+        <h3 class="text-xl font-bold mb-2">Durability</h3>
+        <p class="text-gray-500">Built with high-grade materials to last through every adventure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Products grid (component 12: product cards x badges) -->
+  <section id="new" class="container mx-auto px-4 mt-12">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold">New Arrivals</h2>
+      <div class="flex gap-3">
+        <button class="px-3 py-2 rounded border">Filter</button>
+        <div>
+          <select class="border rounded px-3 py-2">
+            <option>Sort: Popular</option>
+            <option>Newest</option>
+            <option>Price: Low → High</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- product card -->
+      <article class="card">
+        <img src="https://th.bing.com/th/id/OIP.7L0r9o77opRV54HehmsXcgHaFi?o=7&cb=12rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="product" class="rounded-lg mb-3 h-48 w-full object-cover">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="font-semibold">Velocity V2</h3>
+            <p class="text-sm text-gray-500">Energy-return midsole</p>
+          </div>
+          <span class="text-rose-600 font-bold">$139</span>
+        </div>
+        <div class="mt-3 flex gap-3">
+          <a class="btn-primary flex-1 text-center" href="#buy">Add to cart</a>
+          <button class="px-3 py-2 rounded border">Info</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.PA9No4Aqbih5FRUCGvtm5QHaE8?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="product" class="rounded-lg mb-3 h-48 w-full object-cover">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="font-semibold">AeroFlex Pro</h3>
+            <p class="text-sm text-gray-500">Ultra-light performance</p>
+          </div>
+          <span class="text-rose-600 font-bold">$149</span>
+        </div>
+        <div class="mt-3 flex gap-3">
+          <a class="btn-primary flex-1 text-center" href="#buy">Add to cart</a>
+          <button class="px-3 py-2 rounded border">Info</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.pexels.com/photos/2759783/pexels-photo-2759783.jpeg?cs=srgb&dl=pexels-suraj-b-1429549-2759783.jpg&fm=jpg" alt="product" class="rounded-lg mb-3 h-48 w-full object-cover">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="font-semibold">Classic Essential</h3>
+            <p class="text-sm text-gray-500">Timeless everyday comfort</p>
+          </div>
+          <span class="text-rose-600 font-bold">$119</span>
+        </div>
+        <div class="mt-3 flex gap-3">
+          <a class="btn-primary flex-1 text-center" href="#buy">Add to cart</a>
+          <button class="px-3 py-2 rounded border">Info</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Accordion (component 13) -->
+  <section class="container mx-auto px-4 mt-12">
+    <h2 class="text-2xl font-semibold mb-4">Shipping & Returns</h2>
+    <div id="accordion-1" data-accordion="collapse">
+      <h2>
+        <button type="button" data-accordion-target="#acc-1" aria-expanded="true" aria-controls="acc-1" class="flex items-center justify-between w-full p-4 font-medium text-left bg-white border rounded-lg">
+          <span>How long does shipping take?</span>
+          <svg data-accordion-icon class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M5.23 7.21a.75.75 0 011.06-.02L10 10.67l3.71-3.48a.75.75 0 111.04 1.08l-4.25 4a.75.75 0 01-1.04 0l-4.25-4z"/></svg>
+        </button>
+      </h2>
+      <div id="acc-1" class="hidden p-4 border rounded-lg mt-2">
+        <p class="text-gray-600">Standard shipping 3–7 business days. Express options available at checkout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials (component 14) -->
+  <section class="container mx-auto px-4 mt-12">
+    <h2 class="text-2xl font-semibold mb-6">What People Are Saying</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <blockquote class="card italic text-gray-600">“The fit is perfect — and the midsole gives me the energy for my runs.” — Sam R.</blockquote>
+      <blockquote class="card italic text-gray-600">“Stylish enough for the city and comfy enough for all-day wear.” — Lina M.</blockquote>
+      <blockquote class="card italic text-gray-600">“Great customer service and fast delivery.” — Omar K.</blockquote>
+    </div>
+  </section>
+
+  <!-- Newsletter (component 15: subscription form) -->
+  <section class="container mx-auto px-4 mt-12 mb-12">
+    <div class="bg-gradient-to-r from-indigo-100 to-rose-100 p-8 rounded-lg flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <h3 class="text-xl font-semibold">Join the Stride Club</h3>
+        <p class="text-gray-600">Get early access to drops and exclusive offers.</p>
+      </div>
+      <form class="flex gap-3 w-full md:w-auto" onsubmit="return false;">
+        <input type="email" placeholder="Your email" class="px-4 py-2 rounded border w-full md:w-72" />
+        <button class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal markup (component 6) -->
+  <div id="videoModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed z-50 w-full inset-0 h-modal h-full">
+    <div class="relative p-4 w-full max-w-3xl h-full md:h-auto mx-auto">
+      <div class="relative bg-white rounded-lg shadow">
+        <div class="flex justify-between items-start p-4 border-b">
+          <h3 class="text-xl font-semibold">Stride X — Overview</h3>
+          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="videoModal">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.28 5.22a.75.75 0 011.06 0L10 7.88l2.66-2.66a.75.75 0 011.06 1.06L11.06 9l2.66 2.66a.75.75 0 01-1.06 1.06L10 10.12l-2.66 2.66a.75.75 0 01-1.06-1.06L8.94 9 6.28 6.34a.75.75 0 010-1.06z"/></svg>
+          </button>
+        </div>
+        <div class="p-6">
+          <p class="text-gray-600">Watch the product overview and see Stride X in action (placeholder video).</p>
+          <div class="mt-4">
+            <!-- placeholder image for video -->
+            <div class="bg-gray-200 w-full h-48 rounded-lg flex items-center justify-center">Video placeholder</div>
+          </div>
+          <div class="mt-4 text-right">
+            <button data-modal-hide="videoModal" class="btn-primary">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER (component 16) -->
+  <footer class="bg-gradient-to-r from-indigo-700 via-rose-600 to-amber-500 py-8 text-white">
+    <div class="container mx-auto grid md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="font-semibold">StrideGear</h4>
+        <p class="text-sm opacity-90 mt-2">Premium sneakers built for performance and style.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Company</h4>
+        <ul class="mt-2 space-y-2 text-sm">
+          <li><a href="src/pages/about/about.html" class="hover:underline">About</a></li>
+          <li><a href="src/pages/contact/contact.html" class="hover:underline">Contact</a></li>
+          <li><a href="src/pages/signup/signup.html" class="hover:underline">Sign Up</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Support</h4>
+        <ul class="mt-2 space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">Shipping</a></li>
+          <li><a href="#" class="hover:underline">Returns</a></li>
+          <li><a href="#" class="hover:underline">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container mx-auto mt-6 text-center text-sm opacity-90">
+      &copy; 2025 StrideGear — Step Boldly.
+    </div>
   </footer>
 
-  <script>
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
-
-    // simple reveal animation for elements with .reveal
-    document.addEventListener('DOMContentLoaded', () => {
-      requestAnimationFrame(() => {
-        document.querySelectorAll('.reveal').forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.remove('opacity-0', 'translate-y-6');
-          }, 120 * i);
-        });
-      });
-    });
-  </script>
 </body>
-
 </html>
-REM CMD
-dir /b /s "c:\Users\abdul.saboor\Desktop\All.Lab.Tasks-Web-Development" > filelist.txt
-
-

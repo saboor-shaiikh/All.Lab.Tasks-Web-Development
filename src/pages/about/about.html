@@ -1,155 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | StrideGear</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StrideGear — About</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../../../style.css">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+  <link rel="stylesheet" href="../../../style.css" />
 </head>
-<body class="bg-gray-50 text-slate-800">
+<body class="bg-gray-50 text-slate-800 antialiased">
 
-  <header class="bg-gradient-to-r from-indigo-600 via-rose-500 to-amber-400 shadow-md">
+  <!-- NAVBAR (same consistent nav) -->
+  <header class="bg-gradient-to-r from-indigo-600 via-rose-500 to-amber-400 shadow">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="../../../index.html" class="flex items-center space-x-3 text-white font-semibold">
+      <a href="../../../index.html" class="flex items-center gap-3 text-white font-semibold">
         <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold shadow">SG</span>
-        <span class="tracking-wide">StrideGear</span>
+        <span>StrideGear</span>
       </a>
+      <nav class="hidden md:flex items-center gap-4">
+        <a href="../../../index.html" class="text-white hover:opacity-90">Home</a>
+        <a href="about.html" class="text-white hover:opacity-90">About</a>
+        <a href="../contact/contact.html" class="text-white hover:opacity-90">Contact</a>
 
-      <nav class="hidden md:flex items-center space-x-4">
-        <a href="../../../index.html" class="text-white hover:opacity-90 transition">Home</a>
-        <a href="about.html" class="text-white underline">About</a>
-        <a href="../contact/contact.html" class="text-white hover:opacity-90 transition">Contact</a>
-        <a href="../signup/signup.html" class="text-white hover:opacity-90 transition">Sign Up</a>
-        <a href="../signin/signin.html" class="text-white hover:opacity-90 transition">Sign In</a>
+        <div class="relative">
+          <button id="aboutMenuBtn" data-dropdown-toggle="aboutMore" class="text-white px-3 py-2 rounded hover:bg-white/10">More ▾</button>
+          <div id="aboutMore" class="hidden z-10 w-44 bg-white rounded shadow py-2">
+            <a href="../signup/signup.html" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">Join Us</a>
+            <a href="../signin/signin.html" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">Sign in</a>
+          </div>
+        </div>
+
+        <a href="../signup/signup.html" class="bg-white/10 px-3 py-2 rounded text-white hover:bg-white/20 transition">Shop</a>
       </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="../signup/signup.html" class="hidden md:inline-block btn bg-white text-indigo-600 px-4 py-2 rounded shadow hover:scale-105 transition">Get Started</a>
-        <button id="navToggle" class="md:hidden text-white p-2 rounded hover:bg-white/10 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <div id="mobileMenu" class="md:hidden hidden bg-gradient-to-b from-indigo-600 via-rose-500 to-amber-400">
-      <div class="px-4 pb-4 space-y-2">
-        <a href="../../../index.html" class="block text-white py-2 border-b border-white/10">Home</a>
-        <a href="about.html" class="block text-white py-2 border-b border-white/10">About</a>
-        <a href="../contact/contact.html" class="block text-white py-2 border-b border-white/10">Contact</a>
-        <a href="../signup/signup.html" class="block text-white py-2 border-b border-white/10">Sign Up</a>
-        <a href="../signin/signin.html" class="block text-white py-2">Sign In</a>
-      </div>
     </div>
   </header>
 
-  <main class="container mx-auto mt-8 space-y-6 px-4">
-    <section class="rounded-lg overflow-hidden shadow-lg reveal opacity-0 translate-y-6 transition-all duration-700">
-      <div class="bg-gradient-to-r from-rose-50 via-amber-50 to-indigo-50 p-8 text-center">
-        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-2">About StrideGear</h1>
-        <p class="text-slate-700 max-w-2xl mx-auto">We craft versatile footwear that blends performance and everyday style. Durable materials, ergonomic design and low-impact processes are at the core of what we build.</p>
-      </div>
-    </section>
+  <!-- Hero (component 1) -->
+  <section class="container mx-auto px-4 py-16 text-center">
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-3">About StrideGear</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto">We design premium sneakers that perform on the track, in the city, and in everyday life. Sustainable materials, innovative cushioning, and bold aesthetics.</p>
+  </section>
 
-    <section class="grid gap-4 md:grid-cols-3">
-      <div class="p-6 rounded-lg shadow-lg reveal opacity-0 translate-y-6 bg-gradient-to-tr from-pink-50 to-amber-50">
-        <div class="text-3xl font-bold text-rose-600">500+</div>
-        <div class="text-sm text-slate-600">Styles</div>
-      </div>
-      <div class="p-6 rounded-lg shadow-lg reveal opacity-0 translate-y-6 bg-gradient-to-tr from-indigo-50 to-green-50">
-        <div class="text-3xl font-bold text-indigo-600">50k+</div>
-        <div class="text-sm text-slate-600">Customers</div>
-      </div>
-      <div class="p-6 rounded-lg shadow-lg reveal opacity-0 translate-y-6 bg-gradient-to-tr from-emerald-50 to-sky-50">
-        <div class="text-3xl font-bold text-emerald-600">4.9 ★</div>
-        <div class="text-sm text-slate-600">Avg Rating</div>
-      </div>
-    </section>
+  <!-- Mission + Vision (component 2: grid cards) -->
+  <section class="container mx-auto px-4 grid md:grid-cols-2 gap-8">
+    <div class="card hover:scale-105">
+      <h3 class="text-xl font-semibold mb-2">Our Mission</h3>
+      <p class="text-gray-600">To empower movement with sneakers that combine comfort, durability, and iconic design.</p>
+    </div>
+    <div class="card hover:scale-105">
+      <h3 class="text-xl font-semibold mb-2">Our Vision</h3>
+      <p class="text-gray-600">To be the most loved brand for those who value performance and style.</p>
+    </div>
+  </section>
 
-    <section class="bg-white p-6 rounded shadow reveal opacity-0 translate-y-6">
-      <h2 class="font-semibold mb-4 text-slate-900">Our Journey</h2>
-      <ol class="space-y-4">
-        <li class="flex items-start gap-3">
-          <span class="mt-1 inline-block h-3 w-3 rounded-full bg-indigo-600"></span>
-          <div><strong>2018</strong> — StrideGear founded to build better everyday shoes.</div>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 inline-block h-3 w-3 rounded-full bg-rose-500"></span>
-          <div><strong>2020</strong> — Launched performance collection.</div>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 inline-block h-3 w-3 rounded-full bg-emerald-500"></span>
-          <div><strong>2023</strong> — Introduced recycled-material capsule.</div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="bg-white p-6 rounded shadow reveal opacity-0 translate-y-6">
-      <h2 class="font-semibold mb-4">Team</h2>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="p-4 rounded-lg border flex items-start gap-4">
-          <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center font-semibold text-indigo-700">M</div>
-          <div>
-            <div class="font-semibold">Maya — Head of Design</div>
-            <div class="text-sm text-slate-600">Designing ergonomic footwear</div>
-          </div>
-        </div>
-        <div class="p-4 rounded-lg border flex items-start gap-4">
-          <div class="h-12 w-12 rounded-full bg-rose-100 flex items-center justify-center font-semibold text-rose-700">L</div>
-          <div>
-            <div class="font-semibold">Liam — Head of Product</div>
-            <div class="text-sm text-slate-600">Materials & durability</div>
-          </div>
-        </div>
-        <div class="p-4 rounded-lg border flex items-start gap-4">
-          <div class="h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center font-semibold text-emerald-700">N</div>
-          <div>
-            <div class="font-semibold">Noah — Operations</div>
-            <div class="text-sm text-slate-600">Logistics & customer success</div>
-          </div>
-        </div>
+  <!-- Timeline / Stats (component 3: badges + stats) -->
+  <section class="container mx-auto px-4 mt-10">
+    <div class="flex gap-6">
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <div class="text-3xl font-bold">2018</div>
+        <div class="text-sm text-gray-500">Founded</div>
       </div>
-    </section>
-
-    <section class="bg-white p-6 rounded shadow reveal opacity-0 translate-y-6">
-      <h2 class="font-semibold mb-4">FAQ</h2>
-      <div class="space-y-2">
-        <details class="p-3 rounded hover:bg-slate-50">
-          <summary class="font-medium">Do you offer international shipping?</summary>
-          <p class="mt-2 text-sm text-slate-600">Yes — shipping options vary by region at checkout.</p>
-        </details>
-        <details class="p-3 rounded hover:bg-slate-50">
-          <summary class="font-medium">Are materials sustainable?</summary>
-          <p class="mt-2 text-sm text-slate-600">Selected collections use recycled fabrics; we're expanding sustainability efforts.</p>
-        </details>
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <div class="text-3xl font-bold">150+</div>
+        <div class="text-sm text-gray-500">Designs</div>
       </div>
-    </section>
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <div class="text-3xl font-bold">50k+</div>
+        <div class="text-sm text-gray-500">Happy customers</div>
+      </div>
+    </div>
+  </section>
 
-    <section class="bg-gradient-to-r from-indigo-50 via-rose-50 to-amber-50 p-6 rounded shadow text-center reveal opacity-0 translate-y-6">
-      <h3 class="text-lg font-semibold mb-2">Customer Love</h3>
-      <blockquote class="text-slate-700 italic">"The perfect blend of comfort and style — I wear mine every day."</blockquote>
-      <div class="mt-4 text-sm text-slate-600">— Ava, City Commuter</div>
-    </section>
-  </main>
+  <!-- FAQ accordion (component 4) -->
+  <section class="container mx-auto px-4 mt-10">
+    <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+    <div id="faq" data-accordion="collapse">
+      <h2>
+        <button type="button" data-accordion-target="#faq-1" aria-expanded="true" aria-controls="faq-1" class="flex items-center justify-between w-full p-4 font-medium text-left bg-white border rounded-lg">
+          <span>Are your materials sustainable?</span>
+          <svg data-accordion-icon class="w-6 h-6"></svg>
+        </button>
+      </h2>
+      <div id="faq-1" class="hidden p-4 border rounded-lg mt-2">
+        <p class="text-gray-600">We use recycled and responsibly sourced materials where possible.</p>
+      </div>
+    </div>
+  </section>
 
-  <footer class="bg-gradient-to-r from-indigo-700 via-rose-600 to-amber-500 text-white mt-8">
-    <div class="container mx-auto p-6 text-center">© StrideGear 2025.</div>
+  <!-- Team (component 5: cards) -->
+  <section class="container mx-auto px-4 mt-10">
+    <h2 class="text-2xl font-semibold mb-6">Meet the Team</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card text-center">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" class="mx-auto rounded-full h-24 w-24 object-cover mb-3" alt="">
+        <h4 class="font-semibold">Aisha</h4>
+        <p class="text-sm text-gray-500">Lead Designer</p>
+      </div>
+      <div class="card text-center">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.7UF9v_ZNWt_zdJ8xDSCTCwHaE7?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" class="mx-auto rounded-full h-24 w-24 object-cover mb-3" alt="">
+        <h4 class="font-semibold">Daniel</h4>
+        <p class="text-sm text-gray-500">Head of Performance</p>
+      </div>
+      <div class="card text-center">
+        <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=200&auto=format&fit=crop" class="mx-auto rounded-full h-24 w-24 object-cover mb-3" alt="">
+        <h4 class="font-semibold">Mina</h4>
+        <p class="text-sm text-gray-500">Sustainability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials (component 6) -->
+  <section class="container mx-auto px-4 mt-10">
+    <h2 class="text-2xl font-semibold mb-4">Customer Stories</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card italic text-gray-600">“Best running shoe I've owned.” — Haris</div>
+      <div class="card italic text-gray-600">“Beautiful design and excellent support.” — Farah</div>
+    </div>
+  </section>
+
+  <!-- Contact CTA (component 7: CTA) -->
+  <section class="container mx-auto px-4 mt-10 bg-white p-8 rounded-lg shadow flex flex-col md:flex-row items-center justify-between">
+    <div>
+      <h3 class="text-xl font-semibold">Want to collaborate?</h3>
+      <p class="text-gray-600">Drop us a line — we partner with creatives & athletes.</p>
+    </div>
+    <a href="../contact/contact.html" class="btn-primary mt-4 md:mt-0">Contact Us</a>
+  </section>
+
+  <!-- Newsletter (component 8) -->
+  <section class="container mx-auto px-4 mt-10">
+    <div class="bg-gradient-to-r from-indigo-100 to-rose-100 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <h4 class="font-semibold">Subscribe for drops</h4>
+        <p class="text-gray-600 text-sm">Get exclusive early access.</p>
+      </div>
+      <form class="flex gap-2" onsubmit="return false;">
+        <input type="email" placeholder="Your email" class="px-3 py-2 rounded border" />
+        <button class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer (component 9) -->
+  <footer class="bg-gradient-to-r from-indigo-700 via-rose-600 to-amber-500 py-8 text-white mt-12">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 StrideGear. Step Boldly.</p>
+    </div>
   </footer>
 
-  <script>
-    // mobile menu toggle
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
-
-    // reveal animations
-    document.addEventListener('DOMContentLoaded', () => {
-      requestAnimationFrame(() => {
-        document.querySelectorAll('.reveal').forEach((el, i) => {
-          setTimeout(() => el.classList.remove('opacity-0','translate-y-6'), 100 * i);
-        });
-      });
-    });
-  </script>
 </body>
 </html>
