@@ -7,53 +7,129 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../../../style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-slate-800">
 
-
-  <header class="bg-blue-600">
+  <header class="bg-gradient-to-r from-emerald-600 via-cyan-500 to-indigo-600 shadow-md">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="../../../index.html" class="flex items-center space-x-2 text-white font-semibold">
-        <span class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">SG</span>
-        <span>StrideGear</span>
+      <a href="../../../index.html" class="flex items-center space-x-3 text-white font-semibold">
+        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold shadow">SG</span>
+        <span class="tracking-wide">StrideGear</span>
       </a>
+
       <nav class="hidden md:flex items-center space-x-4">
-        <a href="../../../index.html" class="text-white">Home</a>
-        <a href="../about/about.html" class="text-white">About</a>
+        <a href="../../../index.html" class="text-white hover:opacity-90 transition">Home</a>
+        <a href="../about/about.html" class="text-white hover:opacity-90 transition">About</a>
       </nav>
+
+      <button id="navToggle" class="md:hidden text-white p-2 rounded hover:bg-white/10 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden bg-gradient-to-b from-emerald-600 via-cyan-500 to-indigo-600">
+      <div class="px-4 pb-4 space-y-2">
+        <a href="../../../index.html" class="block text-white py-2 border-b border-white/10">Home</a>
+        <a href="../about/about.html" class="block text-white py-2 border-b border-white/10">About</a>
+        <a href="../signin/signin.html" class="block text-white py-2">Sign In</a>
+      </div>
     </div>
   </header>
 
-  <main class="container mx-auto mt-10">
-    <section class="max-w-md mx-auto bg-white p-8 rounded shadow">
-      <h2 class="text-2xl font-bold text-center mb-4">Create your StrideGear account</h2>
+  <main class="container mx-auto mt-10 px-4">
+    <section class="max-w-md mx-auto bg-white p-8 rounded shadow-lg reveal opacity-0 translate-y-6">
+      <h2 class="text-2xl font-bold text-center mb-2">Create your StrideGear account</h2>
       <p class="text-sm text-slate-600 text-center mb-4">Save favorites, track orders, and get early access to new releases.</p>
+
+      <div class="flex gap-3 mb-4">
+        <button class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded border hover:shadow-sm transition" style="background: linear-gradient(90deg,#DB4437,#F4B400); color:white;">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1h-9.2v2.9h5.28C16.64 16.2 14.7 17.8 12 17.8 8.8 17.8 6.1 15.1 6.1 12s2.7-5.8 5.9-5.8c1.55 0 2.95.56 4.02 1.48l2.25-2.25C17.45 4.1 14.86 3 12 3 6.48 3 2 7.48 2 13s4.48 10 10 10c5 0 9.2-3.7 9.35-8.9z"/></svg>
+          Continue with Google
+        </button>
+        <button class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded border hover:shadow-sm transition bg-slate-800 text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.16 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.34-3.37-1.34-.45-1.14-1.11-1.44-1.11-1.44-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.64-1.35-2.22-.25-4.56-1.12-4.56-4.98 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.03A9.6 9.6 0 0112 6.8c.85.004 1.71.11 2.51.32 1.9-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.41.1 2.66.64.71 1.03 1.61 1.03 2.71 0 3.87-2.34 4.73-4.57 4.98.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .26.18.58.69.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+          Continue with GitHub
+        </button>
+      </div>
+
       <form class="space-y-4" id="signupForm">
         <div>
           <label class="block text-sm font-medium mb-1">Full name</label>
-          <input type="text" required class="block w-full rounded border px-3 py-2" placeholder="Your name">
+          <input id="fullName" type="text" required class="block w-full rounded border px-3 py-2" placeholder="Your name">
         </div>
+
         <div>
           <label class="block text-sm font-medium mb-1">Email</label>
-          <input type="email" required class="block w-full rounded border px-3 py-2" placeholder="you@gamil.com">
+          <input id="email" type="email" required class="block w-full rounded border px-3 py-2" placeholder="you@gmail.com">
         </div>
+
         <div>
           <label class="block text-sm font-medium mb-1">Password</label>
-          <input type="password" minlength="8" required class="block w-full rounded border px-3 py-2" placeholder="Create a password">
+          <input id="password" type="password" minlength="8" required class="block w-full rounded border px-3 py-2" placeholder="Create a password">
+          <div id="pwStrength" class="h-2 mt-2 rounded bg-slate-200 overflow-hidden">
+            <div id="pwBar" class="h-full w-0 bg-gradient-to-r from-rose-500 via-amber-400 to-emerald-500 transition-all"></div>
+          </div>
+          <div id="pwText" class="text-xs mt-1 text-slate-500">Use at least 8 characters</div>
         </div>
+
         <div class="flex items-center space-x-2">
           <input type="checkbox" id="agree" required>
           <label for="agree" class="text-sm">I agree to the Terms and Privacy Policy</label>
         </div>
-        <button class="btn w-full">Create Account</button>
 
-        <p class="text-center text-sm">Already have an account? <a href="../signin/signin.html" class="text-blue-600 hover:underline">Sign in.</a></p>
+        <button id="createBtn" class="btn w-full inline-flex items-center justify-center gap-2">
+          Create Account
+        </button>
+
+        <p class="text-center text-sm">Already have an account? <a href="../signin/signin.html" class="text-indigo-600 hover:underline">Sign in.</a></p>
       </form>
     </section>
   </main>
 
-  <footer class="bg-blue-600 text-white mt-8">
+  <footer class="bg-gradient-to-r from-emerald-700 via-cyan-600 to-indigo-700 text-white mt-8">
     <div class="container mx-auto p-6 text-center">© StrideGear 2025.</div>
   </footer>
 
+  <script>
+    // mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+
+    // reveal animations
+    document.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+          setTimeout(() => el.classList.remove('opacity-0','translate-y-6'), 100 * i);
+        });
+      });
+    });
+
+    // password strength simple meter
+    const pw = document.getElementById('password');
+    const bar = document.getElementById('pwBar');
+    const text = document.getElementById('pwText');
+    pw?.addEventListener('input', () => {
+      const v = pw.value || '';
+      let score = 0;
+      if (v.length >= 8) score++;
+      if (/[A-Z]/.test(v)) score++;
+      if (/[0-9]/.test(v)) score++;
+      if (/[^A-Za-z0-9]/.test(v)) score++;
+      const pct = Math.min(100, (score / 4) * 100);
+      bar.style.width = pct + '%';
+      if (pct < 50) { text.textContent = 'Weak password'; bar.classList.remove('from-amber-400','from-emerald-500'); bar.classList.add('from-rose-500'); }
+      else if (pct < 75) { text.textContent = 'Okay — add numbers & symbols'; bar.classList.remove('from-rose-500','from-emerald-500'); bar.classList.add('from-amber-400'); }
+      else { text.textContent = 'Strong password'; bar.classList.remove('from-rose-500','from-amber-400'); bar.classList.add('from-emerald-500'); }
+    });
+
+    // simple submit feedback
+    const form = document.getElementById('signupForm');
+    const createBtn = document.getElementById('createBtn');
+    form?.addEventListener('submit', (e) => {
+      createBtn.setAttribute('disabled','disabled');
+      createBtn.classList.add('opacity-70','cursor-not-allowed');
+      createBtn.textContent = 'Creating...';
+    });
+  </script>
 </body>
 </html>

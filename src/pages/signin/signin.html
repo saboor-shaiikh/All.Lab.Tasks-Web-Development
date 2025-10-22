@@ -1,57 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sign In | StrideGear</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../../../style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-slate-800">
 
-
-  <header class="bg-blue-600">
+  <header class="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 shadow-md">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="../../../index.html" class="flex items-center space-x-2 text-white font-semibold">
-        <span class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">SG</span>
-        <span>StrideGear</span>
+      <a href="../../../index.html" class="flex items-center space-x-3 text-white font-semibold">
+        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold shadow">SG</span>
+        <span class="tracking-wide">StrideGear</span>
       </a>
+
       <nav class="hidden md:flex items-center space-x-4">
-        <a href="../../../index.html" class="text-white">Home</a>
-        <a href="../about/about.html" class="text-white">About</a>
+        <a href="../../../index.html" class="text-white hover:opacity-90 transition">Home</a>
+        <a href="../about/about.html" class="text-white hover:opacity-90 transition">About</a>
+        <a href="../contact/contact.html" class="text-white hover:opacity-90 transition">Contact</a>
+        <a href="../signup/signup.html" class="text-white hover:opacity-90 transition">Sign Up</a>
       </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="../signup/signup.html" class="hidden md:inline-block btn bg-white text-blue-600 px-4 py-2 rounded shadow hover:scale-105 transition">Get Started</a>
+        <button id="navToggle" class="md:hidden text-white p-2 rounded hover:bg-white/10 transition" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden bg-gradient-to-b from-blue-600 via-indigo-600 to-cyan-500">
+      <div class="px-4 pb-4 space-y-2">
+        <a href="../../../index.html" class="block text-white py-2 border-b border-white/10">Home</a>
+        <a href="../about/about.html" class="block text-white py-2 border-b border-white/10">About</a>
+        <a href="../contact/contact.html" class="block text-white py-2 border-b border-white/10">Contact</a>
+        <a href="../signup/signup.html" class="block text-white py-2">Sign Up</a>
+      </div>
     </div>
   </header>
 
-  <main class="container mx-auto mt-10">
-    <section class="max-w-md mx-auto bg-white p-8 rounded shadow">
-      <h2 class="text-2xl font-bold text-center mb-4">Welcome back</h2>
-      <p class="text-sm text-slate-600 text-center mb-4">Sign in to view orders, track shipments and manage your account.</p>
+  <main class="container mx-auto mt-10 px-4">
+    <section class="max-w-md mx-auto bg-white p-8 rounded shadow-lg reveal opacity-0 translate-y-6">
+      <h2 class="text-2xl font-bold text-center mb-2">Welcome back</h2>
+      <p class="text-sm text-slate-600 text-center mb-4">Sign in to access your account and orders.</p>
 
-      <form id="signinForm" class="space-y-4">
+      <div class="flex gap-3 mb-4">
+        <button class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded border hover:shadow-sm transition bg-white text-slate-800">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.16 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.34-3.37-1.34-.45-1.14-1.11-1.44-1.11-1.44-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.64-1.35-2.22-.25-4.56-1.12-4.56-4.98 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.03A9.6 9.6 0 0112 6.8c.85.004 1.71.11 2.51.32 1.9-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.41.1 2.66.64.71 1.03 1.61 1.03 2.71 0 3.87-2.34 4.73-4.57 4.98.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .26.18.58.69.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+          Continue with GitHub
+        </button>
+
+        <button class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded border hover:shadow-sm transition bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.98 3.66 9.12 8.44 9.95v-7.05H8.08V12.1h2.36V9.41c0-2.33 1.39-3.61 3.52-3.61.99 0 2.03.18 2.03.18v2.24h-1.14c-1.12 0-1.47.7-1.47 1.42v1.69h2.5l-.4 2.87h-2.1v7.05C18.34 21.19 22 17.05 22 12.07z"/></svg>
+          Continue with Facebook
+        </button>
+      </div>
+
+      <form id="signinForm" class="space-y-4" action="#" method="POST" novalidate>
         <div>
-          <label class="block text-sm font-medium mb-1">Email</label>
-          <input type="email" required class="block w-full rounded border px-3 py-2" placeholder="you@gmail.com">
+          <label class="block text-sm font-medium mb-1" for="email">Email</label>
+          <input id="email" name="email" type="email" required class="block w-full rounded border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200" placeholder="you@example.com">
         </div>
+
         <div>
-          <label class="block text-sm font-medium mb-1">Password</label>
-          <input type="password" required class="block w-full rounded border px-3 py-2" placeholder="Password">
+          <label class="block text-sm font-medium mb-1" for="password">Password</label>
+          <div class="relative">
+            <input id="password" name="password" type="password" required minlength="6" class="block w-full rounded border px-3 py-2 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-200" placeholder="Your password" aria-describedby="pwToggle">
+            <button type="button" id="togglePw" class="absolute right-2 top-2 text-slate-500 px-2 py-1 rounded hover:bg-slate-100 transition" aria-label="Show password" title="Show password">Show</button>
+          </div>
         </div>
+
         <div class="flex items-center justify-between">
-          <label class="flex items-center gap-2"><input type="checkbox"> Remember me</label>
-          <a href="#" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
+          <label class="inline-flex items-center gap-2 text-sm">
+            <input type="checkbox" name="remember" class="rounded border" />
+            <span>Remember me</span>
+          </label>
+          <a href="../contact/contact.html" class="text-sm text-blue-600 hover:underline">Need help?</a>
         </div>
 
-        <button class="btn w-full" type="submit">Sign In</button>
-        <p class="text-center text-sm">Don’t have an account? <a href="../signup/signup.html" class="text-blue-600 hover:underline">Sign up.</a></p>
+        <button id="signInBtn" type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:scale-105 transition transform">
+          Sign In
+        </button>
+
+        <p class="text-center text-sm">New to StrideGear? <a href="../signup/signup.html" class="text-blue-600 hover:underline">Create an account</a></p>
       </form>
     </section>
   </main>
 
-  <footer class="bg-blue-600 text-white mt-8">
+  <footer class="bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600 text-white mt-8">
     <div class="container mx-auto p-6 text-center">© StrideGear 2025.</div>
   </footer>
 
+  <script>
+    // mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+
+    // reveal animation for elements with .reveal
+    document.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+          setTimeout(() => el.classList.remove('opacity-0','translate-y-6'), 100 * i);
+        });
+      });
+    });
+
+    // password show/hide
+    const pw = document.getElementById('password');
+    const toggle = document.getElementById('togglePw');
+    toggle?.addEventListener('click', () => {
+      if (!pw) return;
+      if (pw.type === 'password') { pw.type = 'text'; toggle.textContent = 'Hide'; toggle.title = 'Hide password'; }
+      else { pw.type = 'password'; toggle.textContent = 'Show'; toggle.title = 'Show password'; }
+    });
+
+    // basic submit feedback
+    const form = document.getElementById('signinForm');
+    const btn = document.getElementById('signInBtn');
+    form?.addEventListener('submit', (e) => {
+      btn.setAttribute('disabled','disabled');
+      btn.classList.add('opacity-70','cursor-not-allowed');
+      btn.textContent = 'Signing in...';
+    });
+  </script>
 </body>
 </html>

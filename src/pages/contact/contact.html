@@ -8,62 +8,106 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../../../style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-slate-50 text-slate-800">
 
-  <header class="bg-blue-600">
+  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 shadow-md">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="../../../index.html" class="flex items-center space-x-2 text-white font-semibold">
-        <span class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">SG</span>
-        <span>StrideGear</span>
+      <a href="../../../index.html" class="flex items-center space-x-3 text-white font-semibold">
+        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shadow font-bold">SG</span>
+        <span class="tracking-wide">StrideGear</span>
       </a>
       <nav class="hidden md:flex items-center space-x-4">
-        <a href="../../../index.html" class="text-white">Home</a>
-        <a href="../about/about.html" class="text-white">About</a>
-        <a href="contact.html" class="text-white">Contact</a>
-        <a href="../signup/signup.html" class="text-white">Sign Up</a>
-        <a href="../signin/signin.html" class="text-white">Sign In</a>
+        <a href="../../../index.html" class="text-white hover:opacity-90 transition">Home</a>
+        <a href="../about/about.html" class="text-white hover:opacity-90 transition">About</a>
+        <a href="contact.html" class="text-white underline">Contact</a>
+        <a href="../signup/signup.html" class="text-white hover:opacity-90 transition">Sign Up</a>
+        <a href="../signin/signin.html" class="text-white hover:opacity-90 transition">Sign In</a>
       </nav>
+
+      <button id="navToggle" class="md:hidden text-white p-2 rounded hover:bg-white/10 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden bg-gradient-to-b from-blue-600 to-indigo-600">
+      <div class="px-4 pb-4 space-y-2">
+        <a href="../../../index.html" class="block text-white py-2 border-b border-white/10">Home</a>
+        <a href="../about/about.html" class="block text-white py-2 border-b border-white/10">About</a>
+        <a href="contact.html" class="block text-white py-2 border-b border-white/10">Contact</a>
+        <a href="../signup/signup.html" class="block text-white py-2 border-b border-white/10">Sign Up</a>
+        <a href="../signin/signin.html" class="block text-white py-2">Sign In</a>
+      </div>
     </div>
   </header>
 
-  <main class="container mx-auto mt-8">
-    <section class="max-w-lg mx-auto bg-white p-6 rounded shadow">
-      <h2 class="text-2xl font-bold mb-4 text-center">Get in touch</h2>
+  <main class="container mx-auto mt-8 px-4">
+    <section class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg reveal opacity-0 translate-y-6 transition-all duration-700">
+      <h2 class="text-2xl font-bold mb-4 text-center text-slate-900">Get in touch</h2>
 
-      <div id="formAlert" class="hidden mb-4"></div>
+      <div id="formAlert" class="hidden mb-4 p-3 rounded"></div>
       <form id="contactForm" action="https://formspree.io/f/xvgwyojo" method="POST" class="space-y-4">
         <div>
           <label class="block text-sm font-medium mb-1">Full name</label>
           <div class="relative">
-            <input name="name" id="name" type="text" required class="block w-full rounded border px-3 py-2" placeholder="Abdul Saboor Ahmad">
+            <input name="name" id="name" type="text" required class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="Abdul Saboor Ahmad">
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium mb-1">Email</label>
-          <input name="email" id="email" type="email" required class="block w-full rounded border px-3 py-2" placeholder="you@gmail.com">
+          <input name="email" id="email" type="email" required class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="you@gmail.com">
         </div>
 
         <div>
           <label class="block text-sm font-medium mb-1">Order number (optional)</label>
-          <input name="order" id="order" type="text" class="block w-full rounded border px-3 py-2" placeholder="e.g. #12345">
+          <input name="order" id="order" type="text" class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="e.g. #12345">
         </div>
 
         <div>
           <label class="block text-sm font-medium mb-1">Message</label>
-          <textarea name="message" id="message" rows="4" required class="block w-full rounded border px-3 py-2" placeholder="How can we help?"></textarea>
+          <textarea name="message" id="message" rows="4" required class="block w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm" placeholder="How can we help?"></textarea>
         </div>
 
         <div class="flex items-center justify-between">
-          <button type="submit" class="btn">Send Message</button>
-          <div class="text-sm text-slate-600">Or email: gawkgawk@stridegear.example</div>
+          <button type="submit" id="sendBtn" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:scale-105 transition transform">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5"/></svg>
+            Send Message
+          </button>
+          <div class="text-sm text-slate-600">Or email: <a href="mailto:saboorsheikh201@gmail.com" class="text-blue-600 underline">saboorsheikh201@gmail.com</a></div>
         </div>
       </form>
     </section>
   </main>
 
-  <footer class="bg-blue-600 text-white mt-8">
+  <footer class="bg-gradient-to-r from-blue-700 to-indigo-700 text-white mt-8">
     <div class="container mx-auto p-6 text-center">© StrideGear 2025.</div>
   </footer>
+
+  <script>
+    // mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+
+    // reveal animations
+    document.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+          setTimeout(() => el.classList.remove('opacity-0', 'translate-y-6'), 100 * i);
+        });
+      });
+    });
+
+    // simple UI feedback for form submit
+    const form = document.getElementById('contactForm');
+    const alertBox = document.getElementById('formAlert');
+    const sendBtn = document.getElementById('sendBtn');
+    form?.addEventListener('submit', (e) => {
+      sendBtn.setAttribute('disabled', 'disabled');
+      sendBtn.classList.add('opacity-70', 'cursor-not-allowed');
+      alertBox.className = 'mb-4 p-3 rounded bg-blue-50 text-blue-700';
+      alertBox.textContent = 'Sending...';
+    });
+  </script>
 </body>
 </html>
