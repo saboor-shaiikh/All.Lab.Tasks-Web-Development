@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoe Form | StrideGear</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite CSS & JS -->
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="form.css">
+  <script type="module" src="./form.js"></script>
+</head>
+
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold">
+          SG
+        </div>
+        <h1 class="text-2xl font-bold">Shoe Form</h1>
+      </div>
+      <a href="../../../index.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all hover:scale-105">
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-6">
+    <!-- Alert -->
+    <div id="alert-banner" class="hidden p-4 mb-4 text-green-800 border border-green-300 rounded-lg bg-green-50" role="alert">
+      <div class="flex items-center">
+        <svg class="flex-shrink-0 w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+        </svg>
+        <span id="alert-message">Operation successful!</span>
+        <button type="button" class="ml-auto bg-green-50 text-green-500 rounded-lg p-1.5 hover:bg-green-200" onclick="document.getElementById('alert-banner').classList.add('hidden')">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 14 14">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <section class="form-section">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl font-bold">+</div>
+        <h2 class="text-3xl font-bold text-gray-900">Add / Edit Shoe</h2>
+      </div>
+
+      <form id="shoeForm" class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label for="shoeBrand">Brand Name</label>
+          <input type="text" id="shoeBrand" placeholder="e.g., Nike" required>
+        </div>
+
+        <div>
+          <label for="shoeName">Shoe Name</label>
+          <input type="text" id="shoeName" placeholder="e.g., Air Runner Pro" required>
+        </div>
+
+        <div>
+          <label for="shoeSize">Shoe Size</label>
+          <input type="text" id="shoeSize" placeholder="e.g., 9, 10, 11" required>
+        </div>
+
+        <div>
+          <label for="feetShape">Feet Shape</label>
+          <input type="text" id="feetShape" placeholder="e.g., Wide, Narrow, Flat" required>
+        </div>
+
+        <div class="col-span-2">
+          <label for="sourceLink">Source Link</label>
+          <input type="url" id="sourceLink" placeholder="https://example.com" required>
+        </div>
+
+        <div class="col-span-2">
+          <button type="submit" class="btn w-full flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+            Add Shoe to Collection
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Search -->
+    <section class="mb-6">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        <input type="text" id="searchInput" placeholder="Search by brand or shoe name..." class="pl-12">
+      </div>
+    </section>
+
+    <!-- Shoe List -->
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-3xl font-bold text-gray-900">Shoe Collection</h2>
+      <span class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+        <span id="shoeCount">0</span> Shoes
+      </span>
+    </div>
+
+    <section>
+      <div id="shoeContainer" class="grid gap-6 md:grid-cols-3"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-purple-600 to-pink-600 text-white mt-16">
+    <div class="container mx-auto p-6 text-center">
+      <p class="text-lg font-semibold">© StrideGear 2025. All rights reserved.</p>
+      <p class="text-purple-200 text-sm mt-2">Admin Panel — Manage your shoe inventory with ease</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,122 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>StrideGear — Shop Premium Sneakers</title>
-
-  <!-- Tailwind CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StrideGear — Premium Sneakers for Every Step</title>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Flowbite (components + JS) -->
+  
+  <!-- Flowbite CSS & JS -->
   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-
-  <!-- Local CSS -->
-  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 text-slate-800 antialiased">
+<body class="bg-gray-50">
 
-  <!-- NAVBAR (component 1) -->
-  <header class="bg-gradient-to-r from-indigo-600 via-rose-500 to-amber-400 shadow">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="index.html" class="flex items-center gap-3 text-white font-semibold">
-        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold shadow">SG</span>
-        <span class="tracking-wide">StrideGear</span>
+  <!-- Component 1: Navbar with Dropdown -->
+  <nav class="bg-white border-b border-gray-200 fixed w-full z-50 top-0 navbar-glass">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="index.html" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold shadow-lg">
+          SG
+        </div>
+        <span class="text-2xl font-bold gradient-text">StrideGear</span>
       </a>
-
-      <!-- desktop nav (component 2: dropdown) -->
-      <nav class="hidden md:flex items-center gap-4">
-        <a href="index.html" class="text-white hover:opacity-90">Home</a>
-        <a href="src/pages/about/about.html" class="text-white hover:opacity-90">About</a>
-        <a href="src/pages/contact/contact.html" class="text-white hover:opacity-90">Contact</a>
-
-        <!-- Flowbite dropdown component (component 3) -->
-        <div class="relative">
-          <button id="moreBtn" data-dropdown-toggle="moreMenu" class="text-white px-3 py-2 rounded hover:bg-white/10 transition">Collections ▾</button>
-          <div id="moreMenu" class="hidden z-10 w-48 bg-white rounded shadow py-2">
-            <a href="#new" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">New Arrivals</a>
-            <a href="#best" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">Best Sellers</a>
-            <a href="#limited" class="block px-4 py-2 text-slate-700 hover:bg-gray-50">Limited Edition</a>
-          </div>
-        </div>
-
-        <a href="src/pages/signin/signin.html" class="text-white hover:opacity-90">Sign in</a>
-        <a href="src/pages/signup/signup.html" class="bg-white/10 px-3 py-2 rounded text-white hover:bg-white/20 transition">Get Started</a>
-      </nav>
-
-      <!-- mobile menu toggle -->
-      <div class="md:hidden">
-        <button data-collapse-toggle="mobile-menu" type="button" class="text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- mobile menu (component 4) -->
-    <div id="mobile-menu" class="hidden px-4 pb-4 md:hidden">
-      <a href="index.html" class="block py-2 text-white">Home</a>
-      <a href="src/pages/about/about.html" class="block py-2 text-white">About</a>
-      <a href="src/pages/contact/contact.html" class="block py-2 text-white">Contact</a>
-      <a href="src/pages/signin/signin.html" class="block py-2 text-white">Sign in</a>
-      <a href="src/pages/signup/signup.html" class="block py-2 text-white">Get Started</a>
-    </div>
-  </header>
-
-  <!-- HERO (component 5: hero + CTA) -->
-  <section class="container mx-auto px-4 py-16">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="space-y-6">
-        <p class="kicker uppercase tracking-wide text-rose-600">New Drop</p>
-        <h1 class="text-5xl font-extrabold leading-tight">Stride X: Engineered for Speed & Comfort</h1>
-        <p class="text-gray-600 max-w-xl">Lightweight knit upper, responsive midsole, and sustainable materials — built for every stride.</p>
-
-        <div class="flex gap-4 items-center">
-          <a href="#new" class="btn-primary inline-flex items-center gap-2">Explore New</a>
-
-          <!-- modal trigger (component 6: modal) -->
-          <button data-modal-target="videoModal" data-modal-toggle="videoModal" class="px-4 py-2 rounded border">Watch</button>
-        </div>
-
-        <!-- small stats (component 7: stat cards) -->
-        <div class="flex gap-4 mt-6">
-          <div class="bg-white p-4 rounded-lg shadow text-center">
-            <div class="text-2xl font-bold">4.9</div>
-            <div class="text-sm text-gray-500">avg. rating</div>
-          </div>
-          <div class="bg-white p-4 rounded-lg shadow text-center">
-            <div class="text-2xl font-bold">24k+</div>
-            <div class="text-sm text-gray-500">pairs sold</div>
-          </div>
-          <div class="bg-white p-4 rounded-lg shadow text-center">
-            <div class="text-2xl font-bold">Free</div>
-            <div class="text-sm text-gray-500">returns</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- product preview (component 8: product card + badge + tooltip) -->
-      <div class="flex justify-center">
-        <div class="card max-w-md transform transition hover:scale-105">
-          <div class="relative">
-            <img src="https://th.bing.com/th/id/R.3f83012aa0da10dd76a3b2c6d9d6f6d2?rik=dbaPmmPcsYuCcA&riu=http%3a%2f%2fwww.fashion-press.net%2fimg%2fnews%2f13929%2fadidas_13.jpg&ehk=u3K3k%2b%2b%2fIgQwo21k9LausR3gIt4JAW4%2bmDLhnuucM%2fI%3d&risl=&pid=ImgRaw&r=0" alt="Stride X shoe" class="w-full rounded-lg h-72 object-cover" />
-            <span class="absolute top-3 left-3 bg-rose-600 text-white text-xs px-2 py-1 rounded">Bestseller</span>
-            <!-- tooltip (component 9) -->
-            <button type="button" data-tooltip-target="sizesTip" class="absolute top-3 right-3 bg-white/90 rounded-full p-2 shadow">
-              <svg class="w-5 h-5 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+      
+      <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      
+      <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+          <li>
+            <a href="index.html" class="block py-2 pl-3 pr-4 text-purple-700 rounded md:bg-transparent md:p-0 font-semibold">Home</a>
+          </li>
+          <li>
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0 md:w-auto">
+              Collections 
+              <svg class="w-2.5 h-2.5 ml-2.5" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
             </button>
-            <div id="sizesTip" role="tooltip" class="hidden absolute z-10 px-3 py-2 text-sm font-medium text-white bg-slate-700 rounded-lg">
+            <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+              <ul class="py-2 text-sm text-gray-700">
+                <li><a href="#new-arrivals" class="block px-4 py-2 hover:bg-gray-100">New Arrivals</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="src/pages/about/about.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">About</a>
+          </li>
+          <li>
+            <a href="src/pages/contact/contact.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Contact</a>
+          </li>
+          <li>
+            <a href="src/pages/Form/form.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Form</a>
+          </li>
+          <li>
+            <a href="src/pages/signin/signin.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Sign In</a>
+          </li>
+          <li>
+            <a href="src/pages/signup/signup.html" class="btn-primary text-sm">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Component 2: Hero Section with CTA Buttons -->
+  <section class="pt-24 pb-16 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <div class="max-w-screen-xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 fade-in-up">
+        <span class="badge-gradient">New Drop 2025</span>
+        <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+          Stride X: <br>
+          <span class="gradient-text">Engineered for Speed</span>
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Lightweight knit upper, responsive midsole, and sustainable materials — built for every stride you take.
+        </p>
+        
+        <!-- Component 3: Button Group -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#new-arrivals" class="btn-primary">Explore Collection</a>
+          <button data-modal-target="video-modal" data-modal-toggle="video-modal" class="btn-secondary">
+            Watch Video
+          </button>
+        </div>
+
+        <!-- Component 4: Stats Cards -->
+        <div class="grid grid-cols-3 gap-4 pt-6">
+          <div class="card text-center">
+            <div class="text-3xl font-bold gradient-text">4.9</div>
+            <div class="text-sm text-gray-500 mt-1">Avg Rating</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold gradient-text">24k+</div>
+            <div class="text-sm text-gray-500 mt-1">Pairs Sold</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold gradient-text">Free</div>
+            <div class="text-sm text-gray-500 mt-1">Returns</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Component 5: Featured Product Card with Badge & Tooltip -->
+      <div class="relative float-animation">
+        <div class="card max-w-md mx-auto product-card overflow-hidden">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop" alt="Stride X Carbon Edition" class="w-full h-80 object-cover rounded-lg">
+            <span class="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+              BESTSELLER
+            </span>
+            <button type="button" data-tooltip-target="tooltip-info" data-tooltip-placement="left" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </button>
+            <div id="tooltip-info" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
               Available in sizes 6–12
+              <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
-
-          <div class="p-4">
-            <h3 class="text-xl font-semibold">Stride X — Carbon Edition</h3>
-            <p class="text-gray-600 mt-2">Responsive foam sole • Knit upper • Eco midsole</p>
-            <div class="mt-4 flex gap-3">
-              <a href="#buy" class="btn-primary flex-1 text-center">Buy Now</a>
-              <!-- add to wishlist dropdown (component 10: tooltip + button) -->
-              <button class="px-3 py-2 rounded border" aria-label="Add to wishlist">♡</button>
+          
+          <div class="p-6 space-y-4">
+            <h3 class="text-2xl font-bold text-gray-900">Stride X — Carbon Edition</h3>
+            <p class="text-gray-600">Responsive foam sole • Knit upper • Eco midsole</p>
+            <div class="flex items-center justify-between">
+              <span class="text-3xl font-bold gradient-text">$139</span>
+              <div class="flex gap-2">
+                <button class="w-10 h-10 rounded-full bg-gray-900 hover:scale-110 transition-transform"></button>
+                <button class="w-10 h-10 rounded-full bg-blue-600 hover:scale-110 transition-transform"></button>
+                <button class="w-10 h-10 rounded-full bg-red-600 hover:scale-110 transition-transform"></button>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <button class="btn-primary flex-1">Add to Cart</button>
+              <button class="btn-secondary px-6">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -124,192 +153,325 @@
     </div>
   </section>
 
-<section class="bg-gray-50 py-16">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl font-semibold mb-10">Why Choose StrideGear</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      
-      <!-- Card 1 -->
-      <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform">
-        <div class="text-blue-600 text-5xl mb-4">👟</div>
-        <h3 class="text-xl font-bold mb-2">Lightweight Design</h3>
-        <p class="text-gray-500">Engineered for performance and comfort, every stride feels effortless.</p>
+  <!-- Component 6: Feature Cards with Icons -->
+  <section class="section-padding bg-white">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Why Choose <span class="gradient-text">StrideGear</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Engineered with precision, designed with passion, and built to last
+        </p>
       </div>
 
-      <!-- Card 2 -->
-      <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform">
-        <div class="text-green-600 text-5xl mb-4">⚡</div>
-        <h3 class="text-xl font-bold mb-2">Energy Boost</h3>
-        <p class="text-gray-500">Responsive sole technology that gives you a spring in every step.</p>
-      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card text-center hover:scale-105 transition-transform">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-3xl">
+            🏃
+          </div>
+          <h3 class="text-xl font-bold mb-3">Lightweight Design</h3>
+          <p class="text-gray-600">Engineered for performance and comfort, every stride feels effortless and natural.</p>
+        </div>
 
-      <!-- Card 3 -->
-      <div class="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition transform">
-        <div class="text-orange-500 text-5xl mb-4">🛡️</div>
-        <h3 class="text-xl font-bold mb-2">Durability</h3>
-        <p class="text-gray-500">Built with high-grade materials to last through every adventure.</p>
+        <div class="card text-center hover:scale-105 transition-transform">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-3xl">
+            ⚡
+          </div>
+          <h3 class="text-xl font-bold mb-3">Energy Boost</h3>
+          <p class="text-gray-600">Responsive sole technology that gives you a spring in every step you take.</p>
+        </div>
+
+        <div class="card text-center hover:scale-105 transition-transform">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-3xl">
+            🛡️
+          </div>
+          <h3 class="text-xl font-bold mb-3">Durability</h3>
+          <p class="text-gray-600">Built with high-grade materials to last through every adventure life throws at you.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- Products grid (component 12: product cards x badges) -->
-  <section id="new" class="container mx-auto px-4 mt-12">
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-2xl font-semibold">New Arrivals</h2>
-      <div class="flex gap-3">
-        <button class="px-3 py-2 rounded border">Filter</button>
-        <div>
-          <select class="border rounded px-3 py-2">
+  <!-- Component 7: Product Grid with Hover Effects -->
+  <section id="new-arrivals" class="section-padding bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-900">New Arrivals</h2>
+        
+        <!-- Component 8: Select Dropdown -->
+        <div class="flex gap-3">
+          <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
             <option>Sort: Popular</option>
-            <option>Newest</option>
-            <option>Price: Low → High</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Newest First</option>
           </select>
         </div>
       </div>
-    </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
-      <!-- product card -->
-      <article class="card">
-        <img src="https://th.bing.com/th/id/OIP.7L0r9o77opRV54HehmsXcgHaFi?o=7&cb=12rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="product" class="rounded-lg mb-3 h-48 w-full object-cover">
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-semibold">Velocity V2</h3>
-            <p class="text-sm text-gray-500">Energy-return midsole</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="card product-card">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop" alt="Velocity V2" class="w-full h-64 object-cover rounded-lg mb-4">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Velocity V2</h3>
+                <p class="text-sm text-gray-500">Energy-return midsole</p>
+              </div>
+              <span class="text-2xl font-bold gradient-text">$139</span>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn-primary flex-1">Add to Cart</button>
+              <button class="btn-secondary px-4">Info</button>
+            </div>
           </div>
-          <span class="text-rose-600 font-bold">$139</span>
-        </div>
-        <div class="mt-3 flex gap-3">
-          <a class="btn-primary flex-1 text-center" href="#buy">Add to cart</a>
-          <button class="px-3 py-2 rounded border">Info</button>
-        </div>
-      </article>
+        </article>
 
-      <article class="card">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.PA9No4Aqbih5FRUCGvtm5QHaE8?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="product" class="rounded-lg mb-3 h-48 w-full object-cover">
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-semibold">AeroFlex Pro</h3>
-            <p class="text-sm text-gray-500">Ultra-light performance</p>
+        <article class="card product-card">
+          <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400&h=300&fit=crop" alt="AeroFlex Pro" class="w-full h-64 object-cover rounded-lg mb-4">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">AeroFlex Pro</h3>
+                <p class="text-sm text-gray-500">Ultra-light performance</p>
+              </div>
+              <span class="text-2xl font-bold gradient-text">$149</span>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn-primary flex-1">Add to Cart</button>
+              <button class="btn-secondary px-4">Info</button>
+            </div>
           </div>
-          <span class="text-rose-600 font-bold">$149</span>
-        </div>
-        <div class="mt-3 flex gap-3">
-          <a class="btn-primary flex-1 text-center" href="#buy">Add to cart</a>
-          <button class="px-3 py-2 rounded border">Info</button>
-        </div>
-      </article>
+        </article>
 
-      <article class="card">
-        <img src="https://images.pexels.com/photos/2759783/pexels-photo-2759783.jpeg?cs=srgb&dl=pexels-suraj-b-1429549-2759783.jpg&fm=jpg" alt="product" class="rounded-lg mb-3 h-48 w-full object-cover">
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="font-semibold">Classic Essential</h3>
-            <p class="text-sm text-gray-500">Timeless everyday comfort</p>
+        <article class="card product-card">
+          <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=300&fit=crop" alt="Classic Essential" class="w-full h-64 object-cover rounded-lg mb-4">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Classic Essential</h3>
+                <p class="text-sm text-gray-500">Timeless everyday comfort</p>
+              </div>
+              <span class="text-2xl font-bold gradient-text">$119</span>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn-primary flex-1">Add to Cart</button>
+              <button class="btn-secondary px-4">Info</button>
+            </div>
           </div>
-          <span class="text-rose-600 font-bold">$119</span>
-        </div>
-        <div class="mt-3 flex gap-3">
-          <a class="btn-primary flex-1 text-center" href="#buy">Add to cart</a>
-          <button class="px-3 py-2 rounded border">Info</button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Accordion (component 13) -->
-  <section class="container mx-auto px-4 mt-12">
-    <h2 class="text-2xl font-semibold mb-4">Shipping & Returns</h2>
-    <div id="accordion-1" data-accordion="collapse">
-      <h2>
-        <button type="button" data-accordion-target="#acc-1" aria-expanded="true" aria-controls="acc-1" class="flex items-center justify-between w-full p-4 font-medium text-left bg-white border rounded-lg">
-          <span>How long does shipping take?</span>
-          <svg data-accordion-icon class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M5.23 7.21a.75.75 0 011.06-.02L10 10.67l3.71-3.48a.75.75 0 111.04 1.08l-4.25 4a.75.75 0 01-1.04 0l-4.25-4z"/></svg>
-        </button>
-      </h2>
-      <div id="acc-1" class="hidden p-4 border rounded-lg mt-2">
-        <p class="text-gray-600">Standard shipping 3–7 business days. Express options available at checkout.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials (component 14) -->
-  <section class="container mx-auto px-4 mt-12">
-    <h2 class="text-2xl font-semibold mb-6">What People Are Saying</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <blockquote class="card italic text-gray-600">“The fit is perfect — and the midsole gives me the energy for my runs.” — Sam R.</blockquote>
-      <blockquote class="card italic text-gray-600">“Stylish enough for the city and comfy enough for all-day wear.” — Lina M.</blockquote>
-      <blockquote class="card italic text-gray-600">“Great customer service and fast delivery.” — Omar K.</blockquote>
-    </div>
-  </section>
+  <!-- Component 9: Accordion FAQ -->
+  <section class="section-padding bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Shipping & Returns</h2>
+      
+      <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900" data-inactive-classes="text-gray-500">
+        <h2 id="accordion-flush-heading-1">
+          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 border-b border-gray-200 hover:bg-gray-50" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+            <span>How long does shipping take?</span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+            </svg>
+          </button>
+        </h2>
+        <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+          <div class="py-5 border-b border-gray-200">
+            <p class="text-gray-500">Standard shipping takes 3–7 business days. Express options are available at checkout for faster delivery.</p>
+          </div>
+        </div>
 
-  <!-- Newsletter (component 15: subscription form) -->
-  <section class="container mx-auto px-4 mt-12 mb-12">
-    <div class="bg-gradient-to-r from-indigo-100 to-rose-100 p-8 rounded-lg flex flex-col md:flex-row items-center justify-between gap-4">
-      <div>
-        <h3 class="text-xl font-semibold">Join the Stride Club</h3>
-        <p class="text-gray-600">Get early access to drops and exclusive offers.</p>
+        <h2 id="accordion-flush-heading-2">
+          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 hover:bg-gray-50" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
+            <span>What is your return policy?</span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+            </svg>
+          </button>
+        </h2>
+        <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+          <div class="py-5 border-b border-gray-200">
+            <p class="text-gray-500">We offer free returns within 30 days of purchase. Items must be unworn and in original packaging.</p>
+          </div>
+        </div>
+
+        <h2 id="accordion-flush-heading-3">
+          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 hover:bg-gray-50" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
+            <span>Do you ship internationally?</span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+            </svg>
+          </button>
+        </h2>
+        <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+          <div class="py-5 border-b border-gray-200">
+            <p class="text-gray-500">Yes! We ship to over 50 countries worldwide. International shipping times vary by location.</p>
+          </div>
+        </div>
       </div>
-      <form class="flex gap-3 w-full md:w-auto" onsubmit="return false;">
-        <input type="email" placeholder="Your email" class="px-4 py-2 rounded border w-full md:w-72" />
-        <button class="btn-primary">Subscribe</button>
-      </form>
     </div>
   </section>
 
-  <!-- Modal markup (component 6) -->
-  <div id="videoModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed z-50 w-full inset-0 h-modal h-full">
-    <div class="relative p-4 w-full max-w-3xl h-full md:h-auto mx-auto">
-      <div class="relative bg-white rounded-lg shadow">
-        <div class="flex justify-between items-start p-4 border-b">
-          <h3 class="text-xl font-semibold">Stride X — Overview</h3>
-          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="videoModal">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.28 5.22a.75.75 0 011.06 0L10 7.88l2.66-2.66a.75.75 0 011.06 1.06L11.06 9l2.66 2.66a.75.75 0 01-1.06 1.06L10 10.12l-2.66 2.66a.75.75 0 01-1.06-1.06L8.94 9 6.28 6.34a.75.75 0 010-1.06z"/></svg>
+  <!-- Component 10: Testimonials -->
+  <section class="section-padding bg-gradient-to-br from-purple-50 to-pink-50">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <blockquote class="card">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 000.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+          </div>
+          <p class="italic text-gray-600 mb-4">"The fit is perfect and the midsole gives me the energy I need for my daily runs. Best purchase this year!"</p>
+          <p class="font-semibold text-gray-900">— Sam R.</p>
+        </blockquote>
+
+        <blockquote class="card">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+          </div>
+          <p class="italic text-gray-600 mb-4">"Stylish enough for the city and comfortable enough for all-day wear. I get compliments everywhere!"</p>
+          <p class="font-semibold text-gray-900">— Lina M.</p>
+        </blockquote>
+
+        <blockquote class="card">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+          </div>
+          <p class="italic text-gray-600 mb-4">"Great customer service and fast delivery. The quality exceeded my expectations!"</p>
+          <p class="font-semibold text-gray-900">— Omar K.</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Component 11: Newsletter Subscription -->
+  <section class="section-padding bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="card bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-3xl font-bold mb-3">Join the Stride Club</h3>
+            <p class="text-purple-100">Get early access to drops, exclusive offers, and member-only benefits.</p>
+          </div>
+          <form class="space-y-3">
+            <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-lg text-gray-900 focus:ring-4 focus:ring-purple-300" required>
+            <button type="submit" class="w-full bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              Subscribe Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Component 12: Modal (Video) -->
+  <div id="video-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+      <div class="relative bg-white rounded-2xl shadow-2xl">
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+          <h3 class="text-xl font-semibold text-gray-900">Stride X Overview</h3>
+          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="video-modal">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 14 14">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
           </button>
         </div>
-        <div class="p-6">
-          <p class="text-gray-600">Watch the product overview and see Stride X in action (placeholder video).</p>
-          <div class="mt-4">
-            <!-- placeholder image for video -->
-            <div class="bg-gray-200 w-full h-48 rounded-lg flex items-center justify-center">Video placeholder</div>
+        <div class="p-4 md:p-5 space-y-4">
+          <div class="aspect-video bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg flex items-center justify-center">
+            <div class="text-center text-white">
+              <svg class="w-20 h-20 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+              </svg>
+              <p class="text-lg font-semibold">Video Coming Soon</p>
+            </div>
           </div>
-          <div class="mt-4 text-right">
-            <button data-modal-hide="videoModal" class="btn-primary">Close</button>
-          </div>
+          <p class="text-gray-600">Watch the complete product overview and see Stride X in action. Experience the innovation that makes every step count.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER (component 16) -->
-  <footer class="bg-gradient-to-r from-indigo-700 via-rose-600 to-amber-500 py-8 text-white">
-    <div class="container mx-auto grid md:grid-cols-3 gap-6">
-      <div>
-        <h4 class="font-semibold">StrideGear</h4>
-        <p class="text-sm opacity-90 mt-2">Premium sneakers built for performance and style.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold">Company</h4>
-        <ul class="mt-2 space-y-2 text-sm">
-          <li><a href="src/pages/about/about.html" class="hover:underline">About</a></li>
-          <li><a href="src/pages/contact/contact.html" class="hover:underline">Contact</a></li>
-          <li><a href="src/pages/signup/signup.html" class="hover:underline">Sign Up</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold">Support</h4>
-        <ul class="mt-2 space-y-2 text-sm">
-          <li><a href="#" class="hover:underline">Shipping</a></li>
-          <li><a href="#" class="hover:underline">Returns</a></li>
-          <li><a href="#" class="hover:underline">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white section-padding">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center font-bold">
+              SG
+            </div>
+            <span class="text-xl font-bold">StrideGear</span>
+          </div>
+          <p class="text-gray-400 text-sm">Premium sneakers built for performance and style. Step boldly into every adventure.</p>
+        </div>
 
-    <div class="container mx-auto mt-6 text-center text-sm opacity-90">
-      &copy; 2025 StrideGear — Step Boldly.
+        <div>
+          <h4 class="font-semibold mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="src/pages/about/about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="src/pages/contact/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Legal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 StrideGear. Step Boldly. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 

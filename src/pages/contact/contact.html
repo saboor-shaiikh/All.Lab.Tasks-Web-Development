@@ -1,134 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>StrideGear — Contact</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Get Help & Support | StrideGear</title>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Flowbite CSS & JS -->
   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-
-  <link rel="stylesheet" href="../../../style.css" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../style.css">
 </head>
-<body class="bg-gray-50 text-slate-800 antialiased">
+<body class="bg-gray-50">
 
-  <!-- Navbar (consistent) -->
-  <header class="bg-gradient-to-r from-indigo-600 via-rose-500 to-amber-400 shadow">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="../../../index.html" class="flex items-center gap-3 text-white font-semibold">
-        <span class="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-bold shadow">SG</span>
-        <span>StrideGear</span>
+  <!-- Component 1: Navbar -->
+  <nav class="bg-white border-b border-gray-200 fixed w-full z-50 top-0 navbar-glass">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="../../../index.html" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold shadow-lg">
+          SG
+        </div>
+        <span class="text-2xl font-bold gradient-text">StrideGear</span>
       </a>
-      <nav class="hidden md:flex items-center gap-4">
-        <a href="../../../index.html" class="text-white hover:opacity-90">Home</a>
-        <a href="../about/about.html" class="text-white hover:opacity-90">About</a>
-        <a href="contact.html" class="text-white hover:opacity-90">Contact</a>
-        <a href="../signin/signin.html" class="text-white hover:opacity-90">Sign in</a>
-        <a href="../signup/signup.html" class="bg-white/10 px-3 py-2 rounded text-white hover:bg-white/20 transition">Get Started</a>
-      </nav>
+      
+      <button data-collapse-toggle="navbar-contact" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      
+      <div class="hidden w-full md:block md:w-auto" id="navbar-contact">
+        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+          <li>
+            <a href="../../../index.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Home</a>
+          </li>
+          <li>
+            <a href="../about/about.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">About</a>
+          </li>
+          <li>
+            <a href="contact.html" class="block py-2 pl-3 pr-4 text-purple-700 rounded md:bg-transparent md:p-0 font-semibold">Contact</a>
+          </li>
+          <li>
+            <a href="../form/form.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Form</a>
+          </li>
+          <li>
+            <a href="../signin/signin.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Sign In</a>
+          </li>
+          <li>
+            <a href="../signup/signup.html" class="btn-primary text-sm">Get Started</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- Contact hero -->
-  <section class="container mx-auto px-4 py-16 text-center">
-    <h1 class="text-4xl font-extrabold mb-3">Get Help & Support</h1>
-    <p class="text-gray-600 max-w-2xl mx-auto">Questions about orders, returns, or product details? Reach out and we'll reply within 24 hours.</p>
-  </section>
-
-  <!-- Contact form (component: form elements) -->
-  <section class="container mx-auto px-4 max-w-2xl">
-    <div class="bg-white rounded-2xl shadow p-8">
-      <form 
-  action="https://formspree.io/f/xvgwyojo" 
-  method="POST" 
-  class="space-y-4"
->
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-    <input type="text" name="name" class="w-full border rounded px-3 py-2" placeholder="Your name" required>
-  </div>
-
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-    <input type="email" name="_replyto" class="w-full border rounded px-3 py-2" placeholder="you@example.com" required>
-  </div>
-
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Order # (optional)</label>
-    <input type="text" name="order" class="w-full border rounded px-3 py-2" placeholder="#12345">
-  </div>
-
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-    <textarea name="message" class="w-full border rounded px-3 py-2" rows="5" placeholder="Tell us how we can help..." required></textarea>
-  </div>
-
-  <div class="flex gap-3">
-    <button 
-      type="submit" 
-      class="px-6 py-2 bg-gradient-to-r from-indigo-600 to-rose-500 text-white rounded-lg hover:from-rose-500 hover:to-amber-400 transition-all duration-300 hover:shadow-lg hover:shadow-rose-200/40"
-    >
-      Submit
-    </button>
-    <button type="reset" class="px-4 py-2 rounded border hover:bg-gray-100 transition">Reset</button>
-  </div>
-</form>
-
+  <!-- Component 2: Hero Section with Animation -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <div class="max-w-screen-xl mx-auto px-4 text-center">
+      <div class="inline-block mb-6 animate-bounce">
+        <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-3xl shadow-2xl">
+          💬
+        </div>
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 fade-in-up">
+        Get <span class="gradient-text">Help & Support</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Questions about orders, returns, or product details? Reach out and we'll reply within 24 hours.
+      </p>
     </div>
   </section>
 
-  <!-- Info + tooltip (component: tooltip) -->
-  <section class="container mx-auto px-4 mt-8">
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="card">
-        <h4 class="font-semibold">Email</h4>
-        <p class="text-gray-600">help@stridegear.com</p>
-      </div>
-      <div class="card">
-        <h4 class="font-semibold">Phone</h4>
-        <p class="text-gray-600">+92 300 1234567</p>
-      </div>
-      <div class="card">
-        <h4 class="font-semibold">Address</h4>
-        <p class="text-gray-600">StrideGear HQ, Karachi, Pakistan</p>
+  <!-- Component 3: Contact Info Cards with Hover Effects -->
+  <section class="section-padding bg-white">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="card text-center group">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+            📧
+          </div>
+          <h4 class="text-xl font-bold mb-2">Email Us</h4>
+          <p class="text-gray-600 mb-3">We typically respond within 24 hours</p>
+          <a href="mailto:help@stridegear.com" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors">
+            help@stridegear.com
+          </a>
+        </div>
+
+        <div class="card text-center group">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+            📞
+          </div>
+          <h4 class="text-xl font-bold mb-2">Call Us</h4>
+          <p class="text-gray-600 mb-3">Mon-Fri, 9am-6pm PKT</p>
+          <a href="tel:+923001234567" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors">
+            +92 300 1234567
+          </a>
+        </div>
+
+        <div class="card text-center group">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+            📍
+          </div>
+          <h4 class="text-xl font-bold mb-2">Visit Us</h4>
+          <p class="text-gray-600 mb-3">Our headquarters</p>
+          <p class="text-purple-600 font-semibold">
+            StrideGear HQ<br>
+            Karachi, Pakistan
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ accordion (component: accordion) -->
-  <section class="container mx-auto px-4 mt-8">
-    <h3 class="text-xl font-semibold mb-4">Help Topics</h3>
-    <div id="helpAccordion" data-accordion="collapse">
-      <h2>
-        <button type="button" data-accordion-target="#h1" aria-expanded="false" aria-controls="h1" class="flex items-center justify-between w-full p-4 bg-white rounded-lg border">
-          <span>How to return an item</span>
-          <svg data-accordion-icon class="w-6 h-6"></svg>
+  <!-- Component 4: Contact Form with Validation States -->
+  <section class="section-padding bg-gradient-to-br from-purple-50 to-pink-50">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="card">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-3">Send Us a Message</h2>
+          <p class="text-gray-600">Fill out the form below and we'll get back to you soon</p>
+        </div>
+
+        <form action="https://formspree.io/f/xvgwyojo" method="POST" class="space-y-6">
+          <!-- Component 5: Input with Label and Icon -->
+          <div>
+            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+              <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+              Full Name
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all" 
+              placeholder="John Doe" 
+              required
+            >
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+              <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Email Address
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="_replyto" 
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all" 
+              placeholder="you@example.com" 
+              required
+            >
+          </div>
+
+          <!-- Component 6: Select Dropdown -->
+          <div>
+            <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">
+              <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+              </svg>
+              Subject
+            </label>
+            <select 
+              id="subject" 
+              name="subject" 
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all"
+              required
+            >
+              <option value="">Select a topic...</option>
+              <option value="order">Order Inquiry</option>
+              <option value="product">Product Question</option>
+              <option value="shipping">Shipping & Delivery</option>
+              <option value="return">Returns & Exchanges</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="order" class="block text-sm font-semibold text-gray-700 mb-2">
+              <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+              </svg>
+              Order Number (Optional)
+            </label>
+            <input 
+              type="text" 
+              id="order" 
+              name="order" 
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all" 
+              placeholder="#12345"
+            >
+          </div>
+
+          <!-- Component 7: Textarea -->
+          <div>
+            <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+              <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+              </svg>
+              Your Message
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="6" 
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:ring-4 focus:ring-purple-100 transition-all resize-none" 
+              placeholder="Tell us how we can help you..."
+              required
+            ></textarea>
+          </div>
+
+          <!-- Component 8: Button Group -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button 
+              type="submit" 
+              class="flex-1 btn-primary flex items-center justify-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+              </svg>
+              Send Message
+            </button>
+            <button 
+              type="reset" 
+              class="flex-1 btn-secondary"
+            >
+              Reset Form
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Component 9: FAQ Accordion -->
+  <section class="section-padding bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Common Questions</h2>
+        <p class="text-xl text-gray-600">Find quick answers to frequently asked questions</p>
+      </div>
+
+      <div id="contact-accordion" data-accordion="collapse">
+        <h2 id="contact-heading-1">
+          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 border-b border-gray-200 hover:bg-gray-50 rounded-t-lg px-4" data-accordion-target="#contact-body-1" aria-expanded="true" aria-controls="contact-body-1">
+            <span class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">1</span>
+              How do I track my order?
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+            </svg>
+          </button>
+        </h2>
+        <div id="contact-body-1" class="hidden" aria-labelledby="contact-heading-1">
+          <div class="py-5 px-4 border-b border-gray-200">
+            <p class="text-gray-600 leading-relaxed">You'll receive a tracking number via email once your order ships. Click the link in the email or visit our tracking page and enter your order number to see real-time updates.</p>
+          </div>
+        </div>
+
+        <h2 id="contact-heading-2">
+          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 hover:bg-gray-50 px-4" data-accordion-target="#contact-body-2" aria-expanded="false" aria-controls="contact-body-2">
+            <span class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">2</span>
+              How do I return an item?
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+            </svg>
+          </button>
+        </h2>
+        <div id="contact-body-2" class="hidden" aria-labelledby="contact-heading-2">
+          <div class="py-5 px-4 border-b border-gray-200">
+            <p class="text-gray-600 leading-relaxed">Returns are free within 30 days. Simply pack the item in its original packaging, print the return label from your account, and drop it off at any courier service. Refunds are processed within 5-7 business days.</p>
+          </div>
+        </div>
+
+        <h2 id="contact-heading-3">
+          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 hover:bg-gray-50 px-4" data-accordion-target="#contact-body-3" aria-expanded="false" aria-controls="contact-body-3">
+            <span class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">3</span>
+              What payment methods do you accept?
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+            </svg>
+          </button>
+        </h2>
+        <div id="contact-body-3" class="hidden" aria-labelledby="contact-heading-3">
+          <div class="py-5 px-4 border-b border-gray-200">
+            <p class="text-gray-600 leading-relaxed">We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, and bank transfers. All transactions are secure and encrypted.</p>
+          </div>
+        </div>
+
+        <h2 id="contact-heading-4">
+          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 hover:bg-gray-50 px-4" data-accordion-target="#contact-body-4" aria-expanded="false" aria-controls="contact-body-4">
+            <span class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">4</span>
+              Do you offer international shipping?
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 10 6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+            </svg>
+          </button>
+        </h2>
+        <div id="contact-body-4" class="hidden" aria-labelledby="contact-heading-4">
+          <div class="py-5 px-4 border-b border-gray-200">
+            <p class="text-gray-600 leading-relaxed">Yes! We ship to over 50 countries worldwide. International shipping costs and delivery times vary by location. Check our shipping page for detailed information about your country.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Component 10: CTA Banner with Live Chat -->
+  <section class="section-padding bg-gradient-to-r from-purple-600 to-pink-600">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+        <div class="text-center md:text-left">
+          <h3 class="text-3xl font-bold mb-3">Need Faster Help?</h3>
+          <p class="text-purple-100 text-lg">Chat with our support team during business hours (9am-6pm PKT)</p>
+        </div>
+        <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all hover:scale-105 flex items-center gap-3 shadow-2xl">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          </svg>
+          Start Live Chat
         </button>
-      </h2>
-      <div id="h1" class="hidden p-4 mt-2 border rounded-lg">
-        <p class="text-gray-600">Returns are free within 30 days. Pack the item and use the returns label in your account.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA & newsletter -->
-  <section class="container mx-auto px-4 mt-8">
-    <div class="bg-gradient-to-r from-indigo-100 to-rose-100 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
-      <div>
-        <h4 class="font-semibold">Need faster help?</h4>
-        <p class="text-gray-600">Contact support via live chat on business hours.</p>
-      </div>
-      <div class="mt-4 md:mt-0">
-        <a href="#" class="btn-primary">Live Chat</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gradient-to-r from-indigo-700 via-rose-600 to-amber-500 py-8 text-white mt-12">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2025 StrideGear. Step Boldly.</p>
+  <footer class="bg-gray-900 text-white section-padding">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center font-bold">
+              SG
+            </div>
+            <span class="text-xl font-bold">StrideGear</span>
+          </div>
+          <p class="text-gray-400 text-sm">Premium sneakers built for performance and style.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../about/about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Legal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 StrideGear. Step Boldly. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 

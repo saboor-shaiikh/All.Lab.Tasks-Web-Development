@@ -1,0 +1,260 @@
+/* form.css - Form Page Specific Styles */
+
+:root {
+  --form-primary: #667eea;
+  --form-primary-dark: #5568d3;
+  --form-secondary: #48bb78;
+  --form-danger: #f56565;
+  --form-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Container */
+.form-section {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--form-shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--form-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+input::placeholder {
+  color: #a0aec0;
+}
+
+/* Button Styles */
+.btn {
+  background: linear-gradient(135deg, var(--form-primary) 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px 0 rgba(102, 126, 234, 0.39);
+  font-size: 1rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102,126, 234, 0.5);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Search Input */
+#searchInput {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+#searchInput:focus {
+  border-color: var(--form-primary);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+/* Card Styles for Shoes */
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  font-weight: 700;
+  color: #1a202c;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.card a {
+  color: var(--form-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.card a:hover {
+  color: var(--form-primary-dark);
+  text-decoration: underline;
+}
+
+/* Action Buttons */
+.card button {
+  margin-right: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.card .edit-btn {
+  background: var(--form-secondary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+}
+
+.card .edit-btn:hover {
+  background: #38a169;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+}
+
+.card .delete-btn {
+  background: var(--form-danger);
+  color: white;
+  box-shadow: 0 2px 8px rgba(245, 101, 101, 0.3);
+}
+
+.card .delete-btn:hover {
+  background: #e53e3e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
+}
+
+/* Label Styles */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+  font-size: 0.95rem;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #718096;
+}
+
+.empty-state svg {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  opacity: 0.5;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-section {
+    padding: 1.5rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Success/Error Messages */
+.message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.message-success {
+  background: #c6f6d5;
+  color: #22543d;
+  border: 1px solid #9ae6b4;
+}
+
+.message-error {
+  background: #fed7d7;
+  color: #742a2a;
+  border: 1px solid #fc8181;
+}
