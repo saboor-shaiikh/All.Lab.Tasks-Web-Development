@@ -1,5 +1,5 @@
 import {mydata} from "../../../database/shoe.js"
-  // form.js - Shoe Management (Simplified Fields)
+  // form.js - Shoe Management (Simplified Fields) - Using ES6 Arrow Functions
 console.log(mydata);
 
 
@@ -32,14 +32,16 @@ const shoeCountBadge = document.getElementById("shoeCount");
 const alertBanner = document.getElementById("alert-banner");
 const alertMessage = document.getElementById("alert-message");
 
-// Initialize
-document.addEventListener("DOMContentLoaded", function () {
+// Initialize - Using Arrow Function
+const initialize = () => {
   renderShoes();
   updateShoeCount();
-});
+};
 
-// Render shoes
-function renderShoes(filterText = "") {
+document.addEventListener("DOMContentLoaded", initialize);
+
+// Render shoes - Using Arrow Function
+const renderShoes = (filterText = "") => {
   const filtered = shoes.filter(
     (shoe) =>
       shoe.shoeName.toLowerCase().includes(filterText.toLowerCase()) ||
@@ -70,18 +72,18 @@ function renderShoes(filterText = "") {
           <a href="${escapeHtml(shoe.sourceLink)}" target="_blank">${truncateUrl(shoe.sourceLink)}</a>
         </p>
         <div class="flex gap-2 mt-4">
-          <button class="edit-btn flex-1" onclick="editShoe(${shoe.id})">Edit</button>
-          <button class="delete-btn flex-1" onclick="deleteShoe(${shoe.id})">Delete</button>
+          <button class="edit-btn flex-1" onclick="window.editShoe(${shoe.id})">Edit</button>
+          <button class="delete-btn flex-1" onclick="window.deleteShoe(${shoe.id})">Delete</button>
         </div>
       </div>`
     )
     .join("");
 
   updateShoeCount();
-}
+};
 
-// Submit Handler
-form.addEventListener("submit", (e) => {
+// Submit Handler - Using Arrow Function
+const handleSubmit = (e) => {
   e.preventDefault();
 
   const shoeData = {
@@ -107,19 +109,21 @@ form.addEventListener("submit", (e) => {
 
   form.reset();
   renderShoes(searchInput.value);
-});
+};
 
-// Delete
-function deleteShoe(id) {
+form.addEventListener("submit", handleSubmit);
+
+// Delete - Using Arrow Function
+const deleteShoe = (id) => {
   if (confirm("Are you sure you want to delete this shoe?")) {
     shoes = shoes.filter((shoe) => shoe.id !== id);
     renderShoes(searchInput.value);
     showAlert("Shoe deleted successfully!");
   }
-}
+};
 
-// Edit
-function editShoe(id) {
+// Edit - Using Arrow Function
+const editShoe = (id) => {
   const shoe = shoes.find((s) => s.id === id);
   if (shoe) {
     document.getElementById("shoeBrand").value = shoe.shoeBrand;
@@ -130,32 +134,38 @@ function editShoe(id) {
     editingId = id;
     document.querySelector(".form-section").scrollIntoView({ behavior: "smooth" });
   }
-}
+};
 
-// Search
-searchInput.addEventListener("input", (e) => renderShoes(e.target.value));
+// Make functions available globally for onclick handlers
+window.editShoe = editShoe;
+window.deleteShoe = deleteShoe;
 
-// Count
-function updateShoeCount() {
+// Search - Using Arrow Function
+const handleSearch = (e) => renderShoes(e.target.value);
+searchInput.addEventListener("input", handleSearch);
+
+// Count - Using Arrow Function
+const updateShoeCount = () => {
   shoeCountBadge.textContent = shoes.length;
-}
+};
 
-// Alert
-function showAlert(message) {
+// Alert - Using Arrow Function
+const showAlert = (message) => {
   alertMessage.textContent = message;
   alertBanner.classList.remove("hidden");
   setTimeout(() => alertBanner.classList.add("hidden"), 3000);
-}
+};
 
-// Utilities
-function escapeHtml(text) {
+// Utilities - Using Arrow Functions
+const escapeHtml = (text) => {
   const div = document.createElement("div");
   div.textContent = text;
   return div.innerHTML;
-}
-function truncateUrl(url, max = 40) {
+};
+
+const truncateUrl = (url, max = 40) => {
   return url.length > max ? url.substring(0, max) + "..." : url;
-}
+};
 
 
 

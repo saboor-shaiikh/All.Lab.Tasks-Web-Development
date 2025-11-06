@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shoe Form | StrideGear</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23667eea'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>SG</text></svg>">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -28,9 +31,20 @@
         </div>
         <h1 class="text-2xl font-bold">Shoe Form</h1>
       </div>
-      <a href="../../../index.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all hover:scale-105">
-        ← Back to Home
-      </a>
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" type="button" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+          <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+        <a href="../../../index.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all hover:scale-105">
+          ← Back to Home
+        </a>
+      </div>
     </div>
   </header>
 
@@ -127,6 +141,19 @@
       <p class="text-purple-200 text-sm mt-2">Admin Panel — Manage your shoe inventory with ease</p>
     </div>
   </footer>
+
+  <!-- Theme Toggle Script -->
+  <script type="module">
+    import { initializeTheme, setupThemeToggle } from '../../../utils/themeUtils.js';
+    
+    // Initialize theme on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTheme((theme) => {
+        console.log('Page loaded with theme:', theme);
+      });
+      setupThemeToggle();
+    });
+  </script>
 
 </body>
 </html>

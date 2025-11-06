@@ -185,3 +185,307 @@ select:focus {
     padding: 6rem 1rem;
   }
 }
+
+/* Dark Mode Styles - Soft, Catchy Dark Theme */
+body.dark-mode {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: #e2e8f0;
+  transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* Background Colors */
+body.dark-mode .bg-gray-50 {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+body.dark-mode .bg-white {
+  background: #1e293b;
+}
+
+body.dark-mode .bg-gradient-to-br {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%) !important;
+}
+
+body.dark-mode .bg-gradient-to-r {
+  background: linear-gradient(to right, #6366f1 0%, #a855f7 100%) !important;
+}
+
+/* Navbar */
+body.dark-mode .navbar-glass {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom-color: #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Cards */
+body.dark-mode .card {
+  background: linear-gradient(145deg, #1e293b, #334155);
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .card:hover {
+  background: linear-gradient(145deg, #334155, #475569);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+/* Text Colors */
+body.dark-mode .text-gray-900 {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .text-gray-800 {
+  color: #e2e8f0 !important;
+}
+
+body.dark-mode .text-gray-700 {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .text-gray-600 {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .text-gray-500 {
+  color: #64748b !important;
+}
+
+body.dark-mode .text-gray-400 {
+  color: #475569 !important;
+}
+
+/* Border Colors */
+body.dark-mode .border-gray-200,
+body.dark-mode .border-gray-100 {
+  border-color: #334155 !important;
+}
+
+body.dark-mode .border-b {
+  border-bottom-color: #334155 !important;
+}
+
+body.dark-mode .border-t {
+  border-top-color: #334155 !important;
+}
+
+/* Form Elements */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: linear-gradient(145deg, #1e293b, #334155);
+  border-color: #475569;
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus,
+body.dark-mode textarea:focus {
+  background: #334155;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+body.dark-mode input::placeholder {
+  color: #64748b;
+}
+
+/* Buttons */
+body.dark-mode .btn-secondary {
+  background: #334155;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+body.dark-mode .btn-secondary:hover {
+  background: #475569;
+  border-color: #64748b;
+}
+
+/* Links */
+body.dark-mode a:not(.btn-primary):not(.btn-secondary) {
+  color: #818cf8;
+}
+
+body.dark-mode a:not(.btn-primary):not(.btn-secondary):hover {
+  color: #a5b4fc;
+}
+
+/* Footer */
+body.dark-mode footer {
+  background: linear-gradient(to bottom, #0f172a, #020617) !important;
+  border-top: 1px solid #334155;
+}
+
+/* Sections with gradient backgrounds */
+body.dark-mode section {
+  transition: background 0.5s ease;
+}
+
+/* Dropdowns & Modals */
+body.dark-mode .dropdown,
+body.dark-mode [id*="dropdown"] > ul,
+body.dark-mode [role="tooltip"] {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode [id*="modal"] .bg-white {
+  background: #1e293b;
+}
+
+/* Badges */
+body.dark-mode .badge-gradient {
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Stats and Info Cards */
+body.dark-mode .empty-state {
+  color: #94a3b8;
+}
+
+/* Product Cards */
+body.dark-mode .product-card img {
+  opacity: 0.9;
+}
+
+body.dark-mode .product-card:hover img {
+  opacity: 1;
+}
+
+/* Accordions */
+body.dark-mode [data-accordion] button {
+  background: transparent;
+  color: #e2e8f0;
+}
+
+body.dark-mode [data-accordion] button:hover {
+  background: rgba(51, 65, 85, 0.5);
+}
+
+/* Testimonials */
+body.dark-mode blockquote {
+  background: linear-gradient(145deg, #1e293b, #334155);
+}
+
+/* Form Page Specific */
+body.dark-mode .form-section {
+  background: linear-gradient(145deg, #1e293b, #334155);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .edit-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+body.dark-mode .delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Alert Banner */
+body.dark-mode [id*="alert"] {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  color: #86efac;
+}
+
+/* Theme Toggle Button with Animation */
+#theme-toggle {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  overflow: hidden;
+}
+
+#theme-toggle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#theme-toggle:hover::before {
+  opacity: 1;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+#theme-toggle:active {
+  transform: scale(0.95) rotate(-5deg);
+}
+
+#theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: white;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon Animation - Rotation and Fade */
+#theme-toggle .sun-icon,
+#theme-toggle .moon-icon {
+  position: absolute;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#theme-toggle .sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+}
+
+#theme-toggle .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+body.dark-mode #theme-toggle .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+body.dark-mode #theme-toggle .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
+}
+
+/* Pulsing effect on theme toggle */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+}
+
+#theme-toggle.transitioning {
+  animation: pulse-ring 0.6s ease-out;
+}
+
+/* Smooth transition for all elements */
+body.dark-mode * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
