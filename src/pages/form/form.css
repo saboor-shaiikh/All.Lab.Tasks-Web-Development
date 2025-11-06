@@ -92,11 +92,41 @@ input::placeholder {
   padding: 1.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
 }
 
 .card:hover {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   transform: translateY(-4px);
+}
+
+.card .space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.card svg {
+  flex-shrink: 0;
+}
+
+body.dark-mode .card svg {
+  color: #a78bfa;
 }
 
 .card h3 {
@@ -184,6 +214,120 @@ label {
   gap: 1rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-gray-200 {
+  border-color: #e5e7eb;
+}
+
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 @media (min-width: 768px) {
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -191,6 +335,18 @@ label {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0;
   }
 }
 
@@ -257,4 +413,84 @@ label {
   background: #fed7d7;
   color: #742a2a;
   border: 1px solid #fc8181;
+}
+
+/* Dark Mode Support */
+body.dark-mode .form-section {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="url"],
+body.dark-mode select {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #e2e8f0;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+body.dark-mode input::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode #searchInput {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #e2e8f0;
+}
+
+body.dark-mode #searchInput:focus {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: #667eea;
+}
+
+body.dark-mode .card {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(102, 126, 234, 0.2);
+}
+
+body.dark-mode .card .border-t {
+  border-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+body.dark-mode .card h3 {
+  color: #e2e8f0;
+}
+
+body.dark-mode .card p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .card a {
+  color: #818cf8;
+}
+
+body.dark-mode .card a:hover {
+  color: #a5b4fc;
+}
+
+body.dark-mode label {
+  color: #e2e8f0;
+}
+
+body.dark-mode .empty-state p {
+  color: #94a3b8;
+}
+
+body.dark-mode .empty-state p:first-of-type {
+  color: #cbd5e1;
 }
