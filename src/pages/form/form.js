@@ -1,23 +1,7 @@
 // form.js - Shoe Management (Simplified Fields) - Using ES6 Arrow Functions
+import { initialShoes } from "../../../database/shoes.js";
 
-let shoes = [
-  {
-    id: 1,
-    shoeBrand: "Nike",
-    shoeName: "Air Runner",
-    shoeSize: "9",
-    feetShape: "Wide",
-    sourceLink: "https://nike.com/airrunner"
-  },
-  {
-    id: 2,
-    shoeBrand: "Adidas",
-    shoeName: "Ultra Boost",
-    shoeSize: "10",
-    feetShape: "Narrow",
-    sourceLink: "https://adidas.com/ultraboost"
-  }
-];
+let shoes = [...initialShoes];
 
 let editingId = null;
 
@@ -28,6 +12,8 @@ let searchInput;
 let shoeCountBadge;
 let alertBanner;
 let alertMessage;
+let sortSelect;
+let sortOption = 'recent';
 
 // Initialize - Using Arrow Function
 const initialize = () => {
@@ -38,6 +24,7 @@ const initialize = () => {
   shoeCountBadge = document.getElementById("shoeCount");
   alertBanner = document.getElementById("alert-banner");
   alertMessage = document.getElementById("alert-message");
+  sortSelect = document.getElementById("sortSelect");
 
   // Set up event listeners
   if (form) {
@@ -48,12 +35,32 @@ const initialize = () => {
     searchInput.addEventListener("input", handleSearch);
   }
 
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+      sortOption = e.target.value;
+      renderShoes(searchInput?.value || "");
+    });
+  }
+
   // Initial render
   renderShoes();
   updateShoeCount();
 };
 
 document.addEventListener("DOMContentLoaded", initialize);
+
+// Helper to apply selected sort
+const applySort = (arr) => {
+  const copy = [...arr];
+  if (sortOption === 'brand') {
+    return copy.sort((a, b) => a.shoeBrand.localeCompare(b.shoeBrand));
+  }
+  if (sortOption === 'name') {
+    return copy.sort((a, b) => a.shoeName.localeCompare(b.shoeName));
+  }
+  // 'recent' default: by id/time desc (newest first)
+  return copy.sort((a, b) => (b.id - a.id));
+};
 
 // Render shoes - Using Arrow Function
 const renderShoes = (filterText = "") => {
@@ -62,6 +69,8 @@ const renderShoes = (filterText = "") => {
       shoe.shoeName.toLowerCase().includes(filterText.toLowerCase()) ||
       shoe.shoeBrand.toLowerCase().includes(filterText.toLowerCase())
   );
+
+  const list = applySort(filtered);
 
   if (filtered.length === 0) {
     shoeContainer.innerHTML = `
@@ -75,7 +84,7 @@ const renderShoes = (filterText = "") => {
     return;
   }
 
-  shoeContainer.innerHTML = filtered
+  shoeContainer.innerHTML = list
     .map(
       (shoe) => `
       <div class="card group">
